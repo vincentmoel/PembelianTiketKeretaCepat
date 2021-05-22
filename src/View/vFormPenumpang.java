@@ -65,10 +65,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblSisaJam10 = new javax.swing.JLabel();
         lblSisaJam14 = new javax.swing.JLabel();
         lblSisaJam12 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        cbSearchJam = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,7 +95,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblJamBerangkat.setText("Jam Berangkat");
 
         btnGroupJamBerangkat.add(rbJam10);
-        rbJam10.setText("10:00");
+        rbJam10.setText("10 : 00  WIB");
         rbJam10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbJam10ActionPerformed(evt);
@@ -106,7 +103,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         });
 
         btnGroupJamBerangkat.add(rbJam12);
-        rbJam12.setText("12 : 00");
+        rbJam12.setText("12 : 00  WIB");
         rbJam12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbJam12ActionPerformed(evt);
@@ -114,7 +111,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         });
 
         btnGroupJamBerangkat.add(rbJam14);
-        rbJam14.setText("14 : 00");
+        rbJam14.setText("14 : 00  WIB");
         rbJam14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbJam14ActionPerformed(evt);
@@ -149,7 +146,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         jLabel9.setText("Cari Berdasarkan");
 
-        cbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "NIK", "Nama Lengkap", " " }));
+        cbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "NIK", "Nama Lengkap" }));
 
         tfSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +162,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
         });
 
         btnInsert.setText("Insert");
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
 
@@ -193,13 +195,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         lblSisaJam12.setText("40");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Jam Keberangkatan", "Jam 10 : 00 WIB", "Jam 12 : 00 WIB", "Jam 14 : 00 WIB" }));
-
-        jLabel17.setText("WIB");
-
-        jLabel18.setText("WIB");
-
-        jLabel19.setText("WIB");
+        cbSearchJam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Jam Keberangkatan", "Jam 10 : 00 WIB", "Jam 12 : 00 WIB", "Jam 14 : 00 WIB" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,8 +221,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(rbJam12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel18)
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel13)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -234,8 +228,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(rbJam10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel17)
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel11)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -250,8 +242,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
                                             .addComponent(jRadioButton2))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(rbJam14)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel19)
                                             .addGap(18, 18, 18)
                                             .addComponent(jLabel12)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -275,7 +265,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbSearchJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -298,7 +288,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
                     .addComponent(cbSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbSearchJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,20 +312,17 @@ public class vFormPenumpang extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbJam10)
-                            .addComponent(jLabel17)
                             .addComponent(jLabel11)
                             .addComponent(lblSisaJam10)
                             .addComponent(lblJamBerangkat))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbJam12)
-                            .addComponent(jLabel18)
                             .addComponent(jLabel13)
                             .addComponent(lblSisaJam12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbJam14)
-                            .addComponent(jLabel19)
                             .addComponent(jLabel12)
                             .addComponent(lblSisaJam14))
                         .addGap(40, 40, 40)
@@ -386,6 +373,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbJam14ActionPerformed
 
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInsertActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -430,14 +421,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cbSearch;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbSearchJam;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButton1;

@@ -86,6 +86,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         lblJenisKelamin.setText("Jenis Kelamin");
 
+        tfId.setEnabled(false);
         tfId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdActionPerformed(evt);

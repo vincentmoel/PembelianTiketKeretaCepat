@@ -5,10 +5,26 @@
  */
 package DAOInterface;
 
+import Model.mPenumpang;
+import java.util.List;
+
 /**
  *
  * @author Vincent Nathaniel
  */
-public class IDAOKeretaCepat {
+public interface IDAOKeretaCepat {
+    // Read Data
+    public List<mPenumpang> readData();
     
+    // Insert Data
+    public void insertData(mPenumpang penumpang);
+    
+    // Update Data
+    public void updateData(mPenumpang penumpang);
+    
+    // Delete Data
+    public void deleteData(mPenumpang penumpang);
+
+
+
 }

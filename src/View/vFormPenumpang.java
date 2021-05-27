@@ -5,6 +5,9 @@
  */
 package View;
 
+import Controller.cKeretaCepat;
+import javax.swing.JTable;
+
 /**
  *
  * @author Vincent Nathaniel
@@ -16,6 +19,8 @@ public class vFormPenumpang extends javax.swing.JFrame {
      */
     public vFormPenumpang() {
         initComponents();
+        cKrtCpt = new Controller.cKeretaCepat(this);
+        cKrtCpt.tampilData();
 //        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -143,6 +148,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblPenumpang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPenumpangMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblPenumpang);
 
         jLabel9.setText("Cari Berdasarkan");
@@ -378,6 +388,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInsertActionPerformed
 
+    private void tblPenumpangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPenumpangMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblPenumpangMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -453,4 +467,15 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JTextField tfSearch;
     private javax.swing.JTextField tfStatus;
     // End of variables declaration//GEN-END:variables
+    
+    cKeretaCepat cKrtCpt;
+    
+    public JTable getTblPenumpang()
+    {
+        return tblPenumpang;
+    }
+
+
+    
+
 }

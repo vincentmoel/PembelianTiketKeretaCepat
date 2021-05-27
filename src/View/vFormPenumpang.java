@@ -6,7 +6,12 @@
 package View;
 
 import Controller.cKeretaCepat;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,7 +25,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
     public vFormPenumpang() {
         initComponents();
         cKrtCpt = new Controller.cKeretaCepat(this);
-        cKrtCpt.tampilData();
+        cKrtCpt.readData();
+        
+        
+        
 //        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -39,8 +47,8 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblId = new javax.swing.JLabel();
         lblNamaLengkap = new javax.swing.JLabel();
         lblAlamat = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbLakiLaki = new javax.swing.JRadioButton();
+        rbPerempuan = new javax.swing.JRadioButton();
         lblJenisKelamin = new javax.swing.JLabel();
         tfId = new javax.swing.JTextField();
         tfNik = new javax.swing.JTextField();
@@ -49,7 +57,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         rbJam12 = new javax.swing.JRadioButton();
         rbJam14 = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tfAlamat = new javax.swing.JTextArea();
+        taAlamat = new javax.swing.JTextArea();
         lblNik = new javax.swing.JLabel();
         tfNamaLengkap = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -83,11 +91,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         lblAlamat.setText("Alamat");
 
-        btnGroupJenisKelamin.add(jRadioButton1);
-        jRadioButton1.setText("Laki - Laki");
+        btnGroupJenisKelamin.add(rbLakiLaki);
+        rbLakiLaki.setText("Laki - Laki");
 
-        btnGroupJenisKelamin.add(jRadioButton2);
-        jRadioButton2.setText("Perempuan");
+        btnGroupJenisKelamin.add(rbPerempuan);
+        rbPerempuan.setText("Perempuan");
 
         lblJenisKelamin.setText("Jenis Kelamin");
 
@@ -124,10 +132,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
             }
         });
 
-        tfAlamat.setColumns(20);
-        tfAlamat.setLineWrap(true);
-        tfAlamat.setRows(5);
-        jScrollPane2.setViewportView(tfAlamat);
+        taAlamat.setColumns(20);
+        taAlamat.setLineWrap(true);
+        taAlamat.setRows(5);
+        jScrollPane2.setViewportView(taAlamat);
 
         lblNik.setText("NIK");
 
@@ -248,9 +256,9 @@ public class vFormPenumpang extends javax.swing.JFrame {
                                             .addComponent(tfNamaLengkap, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(tfId, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jRadioButton1)
+                                            .addComponent(rbLakiLaki)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jRadioButton2))
+                                            .addComponent(rbPerempuan))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(rbJam14)
                                             .addGap(18, 18, 18)
@@ -314,8 +322,8 @@ public class vFormPenumpang extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblJenisKelamin)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))
+                            .addComponent(rbLakiLaki)
+                            .addComponent(rbPerempuan))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAlamat)
@@ -378,6 +386,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
+        cKrtCpt.resetData();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void rbJam14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam14ActionPerformed
@@ -386,6 +395,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
+        cKrtCpt.insertData();
+        cKrtCpt.readData();
+        cKrtCpt.resetData();
+
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void tblPenumpangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPenumpangMouseClicked
@@ -443,8 +456,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAlamat;
@@ -459,8 +470,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbJam10;
     private javax.swing.JRadioButton rbJam12;
     private javax.swing.JRadioButton rbJam14;
+    private javax.swing.JRadioButton rbLakiLaki;
+    private javax.swing.JRadioButton rbPerempuan;
+    private javax.swing.JTextArea taAlamat;
     private javax.swing.JTable tblPenumpang;
-    private javax.swing.JTextArea tfAlamat;
     private javax.swing.JTextField tfId;
     private javax.swing.JTextField tfNamaLengkap;
     private javax.swing.JTextField tfNik;
@@ -474,7 +487,55 @@ public class vFormPenumpang extends javax.swing.JFrame {
     {
         return tblPenumpang;
     }
-
+    
+    public JTextField getTfNik()
+    {
+        return tfNik;
+    }
+    
+    public JTextField getTfNamaLengkap()
+    {
+        return tfNamaLengkap;
+    }
+    
+    public JRadioButton getRbLakiLaki()
+    {
+        return rbLakiLaki;
+    }
+    
+    public JRadioButton getRbPerempuan()
+    {
+        return rbPerempuan;
+    }
+    
+    public JTextArea getTaAlamat()
+    {
+        return taAlamat;
+    }
+    
+    public JRadioButton getRbJam10()
+    {
+        return rbJam10;
+    } 
+    
+    public JRadioButton getRbJam12()
+    {
+        return rbJam12;
+    }
+        
+    public JRadioButton getRbJam14()
+    {
+        return rbJam14;
+    }
+    
+    public ButtonGroup getBtnGroupJenisKelamin(){
+        return btnGroupJenisKelamin;
+    }    
+    
+    public ButtonGroup getBtnGroupJamBerangkat()
+    {
+        return btnGroupJamBerangkat;
+    }
 
     
 

@@ -9,6 +9,7 @@ import DAOInterface.IDAOKeretaCepat;
 import Helper.KoneksiDB;
 import Model.mPenumpang;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,9 +28,10 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         con = KoneksiDB.getConnection();
     }
     
+    
     String queryRead = "SELECT * FROM tbl_penumpang;";
-
-
+    String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
+    
     @Override
     public List<mPenumpang> readData() 
     {
@@ -61,7 +63,31 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     @Override
     public void insertData(mPenumpang penumpang) 
     {
+        PreparedStatement statement = null;
+        try
+        {
+            statement = con.prepareStatement(queryInsert);
+            statement.setString(1,penumpang.getNik());
+            statement.setString(2,penumpang.getNama());
+            statement.setString(3,penumpang.getJk());
+            statement.setString(4,penumpang.getAlamat());
+            statement.setString(5,penumpang.getJamberangkat());
+            
+            statement.execute();
+        }catch(SQLException e)
+        {
 
+        }
+        finally
+        {
+            try 
+            {
+                statement.close();
+            } catch (SQLException ex) 
+            {
+                System.out.println("Gagal Input");
+            }
+        }
     }
 
     @Override

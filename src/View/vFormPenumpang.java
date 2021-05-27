@@ -26,6 +26,9 @@ public class vFormPenumpang extends javax.swing.JFrame {
         initComponents();
         cKrtCpt = new Controller.cKeretaCepat(this);
         cKrtCpt.readData();
+        tfStatus.setHorizontalAlignment(JTextField.CENTER);
+
+
         
         
         
@@ -200,7 +203,13 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         jLabel10.setText("Status");
 
-        tfStatus.setEnabled(false);
+        tfStatus.setEditable(false);
+        tfStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfStatusActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Sisa");
 
@@ -387,6 +396,8 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         cKrtCpt.resetData();
+        tfStatus.setText("");
+
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void rbJam14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam14ActionPerformed
@@ -404,6 +415,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void tblPenumpangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPenumpangMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tblPenumpangMouseClicked
+
+    private void tfStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -535,6 +550,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
     public ButtonGroup getBtnGroupJamBerangkat()
     {
         return btnGroupJamBerangkat;
+    }
+    
+    public JTextField getTfStatus()
+    {
+        return tfStatus;
     }
 
     

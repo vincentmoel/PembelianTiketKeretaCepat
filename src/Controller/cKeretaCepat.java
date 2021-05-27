@@ -60,7 +60,13 @@ public class cKeretaCepat {
             penumpang.setJamberangkat("14");
         }
         
-        iKeretaCepat.insertData(penumpang);
+        boolean success = iKeretaCepat.insertData(penumpang);
+        if (success)
+        {
+            framePenumpang.getTfStatus().setText("Input Berhasil");
+        }else{
+            framePenumpang.getTfStatus().setText("Input Gagal");
+        }
     }
     
     public void updateData()

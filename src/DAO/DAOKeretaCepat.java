@@ -61,8 +61,9 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     }
 
     @Override
-    public void insertData(mPenumpang penumpang) 
+    public boolean insertData(mPenumpang penumpang) 
     {
+        boolean success = true;
         PreparedStatement statement = null;
         try
         {
@@ -76,7 +77,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
             statement.execute();
         }catch(SQLException e)
         {
-
+            success = false;            
         }
         finally
         {
@@ -86,8 +87,11 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
             } catch (SQLException ex) 
             {
                 System.out.println("Gagal Input");
+                success = false;            
+
             }
         }
+        return success;
     }
 
     @Override

@@ -17,7 +17,7 @@ public interface IDAOKeretaCepat {
     public List<mPenumpang> readData();
     
     // Insert Data
-    public void insertData(mPenumpang penumpang);
+    public boolean insertData(mPenumpang penumpang);
     
     // Update Data
     public void updateData(mPenumpang penumpang);

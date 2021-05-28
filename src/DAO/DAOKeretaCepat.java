@@ -28,9 +28,11 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         con = KoneksiDB.getConnection();
     }
     
-    
+//    SQL
     String queryRead = "SELECT * FROM tbl_penumpang;";
     String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
+    String queryCount = "SELECT COUNT(jamberangkat) AS jml FROM tbl_penumpang WHERE jamberangkat = ?;";
+    String querySlot = "SELECT slot_berangkat FROM tbl_jadwal WHERE jam_berangkat = ?;";
     
     @Override
     public List<mPenumpang> readData() 
@@ -104,6 +106,54 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     public void deleteData(mPenumpang penumpang) 
     {
         
+    }
+
+    @Override
+    public int getCountData(String jam) 
+    {
+        
+        int jml = 0;
+        
+        try 
+        {
+            PreparedStatement st = con.prepareStatement(queryCount);
+            st.setString(1, jam);
+            ResultSet rs = st.executeQuery();
+            
+            while(rs.next())
+            {
+                jml = rs.getInt("jml");
+            }
+                    
+        } catch (Exception e) 
+        {
+            System.out.println("Gagal Count");
+        }
+        
+        return jml;
+    }
+
+    @Override
+    public int getSlotData(String jam) 
+    {
+        int slot = 0;
+        
+        try 
+        {
+            PreparedStatement st = con.prepareStatement(querySlot);
+            st.setString(1, jam);
+            ResultSet rs = st.executeQuery();
+            
+            while(rs.next())
+            {
+                slot = rs.getInt("slot_berangkat");
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Gagal get Slot");
+        }
+        
+        return slot;
     }
 
 }

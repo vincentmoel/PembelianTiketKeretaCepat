@@ -6,8 +6,12 @@
 package View;
 
 import Controller.cKeretaCepat;
+import DAO.DAOKeretaCepat;
+import DAOInterface.IDAOKeretaCepat;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -27,6 +31,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         cKrtCpt = new Controller.cKeretaCepat(this);
         cKrtCpt.readData();
         tfStatus.setHorizontalAlignment(JTextField.CENTER);
+        
 
 
         
@@ -75,9 +80,9 @@ public class vFormPenumpang extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         tfStatus = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lblHurufSisaJam10 = new javax.swing.JLabel();
+        lblHurufSisaJam14 = new javax.swing.JLabel();
+        lblHurufSisaJam12 = new javax.swing.JLabel();
         lblSisaJam10 = new javax.swing.JLabel();
         lblSisaJam14 = new javax.swing.JLabel();
         lblSisaJam12 = new javax.swing.JLabel();
@@ -211,11 +216,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setText("Sisa");
+        lblHurufSisaJam10.setText("Sisa");
 
-        jLabel12.setText("Sisa");
+        lblHurufSisaJam14.setText("Sisa");
 
-        jLabel13.setText("Sisa");
+        lblHurufSisaJam12.setText("Sisa");
 
         lblSisaJam10.setText("40");
 
@@ -250,14 +255,14 @@ public class vFormPenumpang extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(rbJam12)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel13)
+                                            .addComponent(lblHurufSisaJam12)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lblSisaJam12))
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(rbJam10)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel11)
+                                            .addComponent(lblHurufSisaJam10)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lblSisaJam10))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -271,7 +276,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(rbJam14)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel12)
+                                            .addComponent(lblHurufSisaJam14)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(lblSisaJam14))))
                                 .addComponent(lblNik)
@@ -340,18 +345,18 @@ public class vFormPenumpang extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbJam10)
-                            .addComponent(jLabel11)
+                            .addComponent(lblHurufSisaJam10)
                             .addComponent(lblSisaJam10)
                             .addComponent(lblJamBerangkat))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbJam12)
-                            .addComponent(jLabel13)
+                            .addComponent(lblHurufSisaJam12)
                             .addComponent(lblSisaJam12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbJam14)
-                            .addComponent(jLabel12)
+                            .addComponent(lblHurufSisaJam14)
                             .addComponent(lblSisaJam14))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -374,11 +379,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIdActionPerformed
 
     private void rbJam10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam10ActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_rbJam10ActionPerformed
 
     private void rbJam12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam12ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_rbJam12ActionPerformed
 
     private void tfNamaLengkapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaLengkapActionPerformed
@@ -401,11 +406,12 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void rbJam14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam14ActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_rbJam14ActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
+        
         cKrtCpt.insertData();
         cKrtCpt.readData();
         cKrtCpt.resetData();
@@ -466,14 +472,14 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbSearch;
     private javax.swing.JComboBox<String> cbSearchJam;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAlamat;
+    private javax.swing.JLabel lblHurufSisaJam10;
+    private javax.swing.JLabel lblHurufSisaJam12;
+    private javax.swing.JLabel lblHurufSisaJam14;
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblJamBerangkat;
     private javax.swing.JLabel lblJenisKelamin;
@@ -555,6 +561,41 @@ public class vFormPenumpang extends javax.swing.JFrame {
     public JTextField getTfStatus()
     {
         return tfStatus;
+    }
+    
+    public JLabel getLblSisaJam10()
+    {
+        return lblSisaJam10;
+    }
+    
+    public JLabel getLblSisaJam12()
+    {
+        return lblSisaJam12;
+    }
+    
+    public JLabel getLblSisaJam14()
+    {
+        return lblSisaJam14;
+    }
+    
+    public JLabel getLbLHurufSisaJam10()
+    {
+        return lblHurufSisaJam10;
+    }
+    
+    public JLabel getLbLHurufSisaJam12()
+    {
+        return lblHurufSisaJam12;
+    }
+    
+    public JLabel getLbLHurufSisaJam14()
+    {
+        return lblHurufSisaJam14;
+    }
+    
+    public JButton getBtnInsert()
+    {
+        return btnInsert;
     }
 
     

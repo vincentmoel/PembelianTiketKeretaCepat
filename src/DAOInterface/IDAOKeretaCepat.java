@@ -24,6 +24,12 @@ public interface IDAOKeretaCepat {
     
     // Delete Data
     public void deleteData(mPenumpang penumpang);
+    
+    // Count Data
+    public int getCountData(String jam);
+    
+    // Get Slot Data
+    public int getSlotData(String jam);
 
 
 

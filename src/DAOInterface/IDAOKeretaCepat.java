@@ -31,6 +31,7 @@ public interface IDAOKeretaCepat {
     // Get Slot Data
     public int getSlotData(String jam);
 
+    public List<mPenumpang> searchData(String jam, String attribut, String isiAtribut);
 
 
 }

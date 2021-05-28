@@ -55,6 +55,8 @@
                                           <Component id="lblHurufSisaJam12" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblSisaJam12" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lblStatusSlot12" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
@@ -63,6 +65,8 @@
                                           <Component id="lblHurufSisaJam10" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblSisaJam10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lblStatusSlot10" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="tfNik" alignment="0" pref="223" max="32767" attributes="0"/>
@@ -80,6 +84,8 @@
                                           <Component id="lblHurufSisaJam14" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblSisaJam14" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lblStatusSlot14" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -101,7 +107,7 @@
                               <Component id="tfStatus" min="-2" pref="204" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="72" max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -167,18 +173,21 @@
                           <Component id="lblHurufSisaJam10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSisaJam10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblJamBerangkat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStatusSlot10" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbJam12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHurufSisaJam12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSisaJam12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStatusSlot12" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbJam14" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHurufSisaJam14" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSisaJam14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStatusSlot14" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -350,10 +359,11 @@
     <Component class="javax.swing.JComboBox" name="cbSearch">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="ID"/>
-            <StringItem index="1" value="NIK"/>
-            <StringItem index="2" value="Nama Lengkap"/>
+          <StringArray count="4">
+            <StringItem index="0" value="Pilih"/>
+            <StringItem index="1" value="ID"/>
+            <StringItem index="2" value="NIK"/>
+            <StringItem index="3" value="Nama Lengkap"/>
           </StringArray>
         </Property>
       </Properties>
@@ -391,6 +401,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnReset">
       <Properties>
@@ -458,6 +471,21 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblStatusSlot10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="lblStatusSlot10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblStatusSlot14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="lblStatusSlot14"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblStatusSlot12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="lblStatusSlot12"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

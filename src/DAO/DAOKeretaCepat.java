@@ -33,7 +33,10 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
     String queryCount = "SELECT COUNT(jamberangkat) AS jml FROM tbl_penumpang WHERE jamberangkat = ?;";
     String querySlot = "SELECT slot_berangkat FROM tbl_jadwal WHERE jam_berangkat = ?;";
-    
+    String querySearch1 = "SELECT * FROM tbl_penumpang WHERE jamberangkat LIKE ? AND ? LIKE ?;";
+    String querySearch = "SELECT * FROM tbl_penumpang WHERE nik LIKE ?;";
+
+
     @Override
     public List<mPenumpang> readData() 
     {
@@ -155,5 +158,57 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         
         return slot;
     }
+
+    @Override
+    public List<mPenumpang> searchData(String jam, String atribut, String isiAtribut) 
+    {
+        List<mPenumpang> listPenumpang = null;
+        try
+        {
+            listPenumpang = new ArrayList<mPenumpang>();
+            PreparedStatement st = con.prepareStatement(querySearch);
+//            st.setString(1,"%"+jam+"%");
+//            st.setString(2,atribut);
+//            st.setString(3,"%"+isiAtribut);
+
+//            st.setString(1,"nik");
+            st.setString(1,"%"+"1"+"%");
+
+
+
+            ResultSet rs = st.executeQuery();
+            while(rs.next())
+            {
+                System.out.println("a");
+                mPenumpang penumpang = new mPenumpang();
+                penumpang.setId(rs.getInt("id_penumpang")); // id_penumpang dari atribut di database
+                penumpang.setNik(rs.getString("nik"));
+                penumpang.setNama(rs.getString("nama"));
+                penumpang.setJk(rs.getString("jk"));
+                penumpang.setAlamat(rs.getString("alamat"));
+                penumpang.setJamberangkat(rs.getString("jamberangkat"));
+                listPenumpang.add(penumpang);
+                        
+            }
+            System.out.println("%"+jam+"%");
+//            System.out.println(atribut);
+            System.out.println("%"+isiAtribut+"%");
+            
+            System.out.println();
+            
+
+
+        }
+        catch(SQLException e)
+        {
+            System.out.println(querySearch);
+
+            System.out.println("Error "+e);
+        }
+        return listPenumpang;
+    }
+//    String querySearch = "SELECT * FROM tbl_penumpang WHERE jamberangkat LIKE ? AND ? LIKE ?;";
+
+
 
 }

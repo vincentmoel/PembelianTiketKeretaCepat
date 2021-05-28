@@ -10,7 +10,9 @@ import DAOInterface.IDAOKeretaCepat;
 import Model.mPenumpang;
 import Model.mTabelModelPenumpang;
 import View.vFormPenumpang;
+import java.awt.Color;
 import java.util.List;
+import javax.swing.JTextField;
 
 /**
  *
@@ -27,12 +29,23 @@ public class cKeretaCepat {
         iKeretaCepat = new DAOKeretaCepat();
     }
     
-    public void readData()//Menampilkan Data di Table
+    public void startApp()
     {
-        listPenumpang = iKeretaCepat.readData();
-        mTabelModelPenumpang tabelPenumpang = new mTabelModelPenumpang(listPenumpang);
-        framePenumpang.getTblPenumpang().setModel(tabelPenumpang);
+        // Set Text Center di Text Field Status
+        framePenumpang.getTfStatus().setHorizontalAlignment(JTextField.CENTER);
         
+        // Membuat lblStatusSlot jadi blank
+        framePenumpang.getLblStatusSlot10().setText("");
+        framePenumpang.getLblStatusSlot12().setText("");
+        framePenumpang.getLblStatusSlot14().setText("");
+        
+        // Menjalankan Method utama
+        readData();
+        updateSlot();
+    }
+    
+    public void updateSlot()
+    {
         // Update Slot Kursi
         int slot = iKeretaCepat.getSlotData("10");
 //        int count10 = 40;
@@ -49,19 +62,34 @@ public class cKeretaCepat {
             framePenumpang.getRbJam10().setEnabled(false);
             framePenumpang.getLbLHurufSisaJam10().setEnabled(false);
             framePenumpang.getLblSisaJam10().setEnabled(false);
+            framePenumpang.getLblStatusSlot10().setText("HABIS");
+            framePenumpang.getLblStatusSlot10().setForeground(Color.RED);
+
         }
         if (slot - count12 == 0)
         {
             framePenumpang.getRbJam12().setEnabled(false);
             framePenumpang.getLbLHurufSisaJam12().setEnabled(false);
             framePenumpang.getLblSisaJam12().setEnabled(false);
+            framePenumpang.getLblStatusSlot12().setText("HABIS");
+            framePenumpang.getLblStatusSlot12().setForeground(Color.RED);
         }
         if (slot - count14 == 0)
         {
             framePenumpang.getRbJam14().setEnabled(false);
             framePenumpang.getLbLHurufSisaJam14().setEnabled(false);
             framePenumpang.getLblSisaJam14().setEnabled(false);
+            framePenumpang.getLblStatusSlot14().setText("HABIS");
+            framePenumpang.getLblStatusSlot14().setForeground(Color.RED);
         }
+    }
+
+    
+    public void readData()//Menampilkan Data di Table
+    {
+        listPenumpang = iKeretaCepat.readData();
+        mTabelModelPenumpang tabelPenumpang = new mTabelModelPenumpang(listPenumpang);
+        framePenumpang.getTblPenumpang().setModel(tabelPenumpang);
  
     }
     
@@ -82,20 +110,15 @@ public class cKeretaCepat {
         
         penumpang.setAlamat(framePenumpang.getTaAlamat().getText());
         
-        
         if(framePenumpang.getRbJam10().isSelected())
         {         
             penumpang.setJamberangkat("10");
- 
-     
         }else if(framePenumpang.getRbJam12().isSelected())
         {
-            penumpang.setJamberangkat("12");
-            
+            penumpang.setJamberangkat("12");  
         }else if(framePenumpang.getRbJam14().isSelected())
         {
-            penumpang.setJamberangkat("14");
-            
+            penumpang.setJamberangkat("14"); 
         }
         
         boolean success = iKeretaCepat.insertData(penumpang);
@@ -104,7 +127,7 @@ public class cKeretaCepat {
         {    
             framePenumpang.getTfStatus().setText("Input Berhasil");
         }else{
-            framePenumpang.getTfStatus().setText("Slot Kursi Habis");
+            framePenumpang.getTfStatus().setText("Input Gagal");
         }
     }
     
@@ -127,6 +150,55 @@ public class cKeretaCepat {
         framePenumpang.getBtnGroupJenisKelamin().clearSelection();
         framePenumpang.getTaAlamat().setText("");
         framePenumpang.getBtnGroupJamBerangkat().clearSelection();
+    }
+    
+    public void searchData()
+    {
+        String jam = null;
+        String atribut = null;
+        
+        int jamSearch = framePenumpang.getCbSearchJam().getSelectedIndex();
+        int atributSearch = framePenumpang.getCbSearch().getSelectedIndex();
+        String isiAtributSearch =  framePenumpang.getTfSearch().getText();
+        switch(jamSearch)
+        {
+            case 0 :
+                jam = "_";
+                break;
+            case 1 :
+                jam = "10";
+                break;
+            case 2 :
+                jam = "12";
+                break;
+            case 3 :
+                jam = "14";
+                break;
+        }
+        
+        switch(atributSearch)
+        {
+            case 0 :
+                atribut = "id_penumpang";
+                isiAtributSearch = "_";
+                break;
+            case 1 :
+                atribut = "id_penumpang";
+                break;
+            case 2 :
+                atribut = "nik";
+                break;
+            case 3 :
+                atribut = "nama";
+                break;
+        }
+        
+//        iKeretaCepat.searchData(jam, atribut , isiAtributSearch);
+        listPenumpang = iKeretaCepat.searchData(jam, atribut , isiAtributSearch);
+        mTabelModelPenumpang tabelPenumpang = new mTabelModelPenumpang(listPenumpang);
+        framePenumpang.getTblPenumpang().setModel(tabelPenumpang);
+        
+        
     }
     
 

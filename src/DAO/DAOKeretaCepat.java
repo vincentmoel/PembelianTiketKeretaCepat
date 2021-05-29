@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class DAOKeretaCepat implements IDAOKeretaCepat
 {
+    String a = null;
     Connection con;
     public DAOKeretaCepat()
     {
@@ -33,8 +34,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
     String queryCount = "SELECT COUNT(jamberangkat) AS jml FROM tbl_penumpang WHERE jamberangkat = ?;";
     String querySlot = "SELECT slot_berangkat FROM tbl_jadwal WHERE jam_berangkat = ?;";
-    String querySearch1 = "SELECT * FROM tbl_penumpang WHERE jamberangkat LIKE ? AND ? LIKE ?;";
-    String querySearch = "SELECT * FROM tbl_penumpang WHERE nik LIKE ?;";
+    String querySearch;
 
 
     @Override
@@ -162,24 +162,18 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     @Override
     public List<mPenumpang> searchData(String jam, String atribut, String isiAtribut) 
     {
+        querySearch = "SELECT * FROM tbl_penumpang WHERE jamberangkat LIKE ? AND "+atribut+" LIKE ?;";
+
         List<mPenumpang> listPenumpang = null;
         try
         {
             listPenumpang = new ArrayList<mPenumpang>();
             PreparedStatement st = con.prepareStatement(querySearch);
-//            st.setString(1,"%"+jam+"%");
-//            st.setString(2,atribut);
-//            st.setString(3,"%"+isiAtribut);
-
-//            st.setString(1,"nik");
-            st.setString(1,"%"+"1"+"%");
-
-
-
+            st.setString(1,"%"+jam+"%");
+            st.setString(2,"%"+isiAtribut+"%");
             ResultSet rs = st.executeQuery();
             while(rs.next())
             {
-                System.out.println("a");
                 mPenumpang penumpang = new mPenumpang();
                 penumpang.setId(rs.getInt("id_penumpang")); // id_penumpang dari atribut di database
                 penumpang.setNik(rs.getString("nik"));
@@ -188,16 +182,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
                 penumpang.setAlamat(rs.getString("alamat"));
                 penumpang.setJamberangkat(rs.getString("jamberangkat"));
                 listPenumpang.add(penumpang);
-                        
             }
-            System.out.println("%"+jam+"%");
-//            System.out.println(atribut);
-            System.out.println("%"+isiAtribut+"%");
-            
-            System.out.println();
-            
-
-
         }
         catch(SQLException e)
         {
@@ -207,8 +192,4 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         }
         return listPenumpang;
     }
-//    String querySearch = "SELECT * FROM tbl_penumpang WHERE jamberangkat LIKE ? AND ? LIKE ?;";
-
-
-
 }

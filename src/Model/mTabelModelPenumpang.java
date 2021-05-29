@@ -41,9 +41,9 @@ public class mTabelModelPenumpang extends AbstractTableModel {
             case 1 :
                 return "NIK";
             case 2 :
-                return "Nama";
+                return "Nama Lengkap";
             case 3 :
-                return "Jenis Kelamin";
+                return "JK";
             case 4 :
                 return "Alamat";
             case 5 :

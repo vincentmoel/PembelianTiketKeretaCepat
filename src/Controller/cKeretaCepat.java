@@ -12,6 +12,7 @@ import Model.mTabelModelPenumpang;
 import View.vFormPenumpang;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 /**
@@ -31,6 +32,10 @@ public class cKeretaCepat {
     
     public void startApp()
     {
+        // Membuat full screen
+        framePenumpang.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        
         // Set Text Center di Text Field Status
         framePenumpang.getTfStatus().setHorizontalAlignment(JTextField.CENTER);
         
@@ -39,9 +44,24 @@ public class cKeretaCepat {
         framePenumpang.getLblStatusSlot12().setText("");
         framePenumpang.getLblStatusSlot14().setText("");
         
+
+        
         // Menjalankan Method utama
         readData();
         updateSlot();
+        resizeTable();
+
+        
+        // Set Width Column
+
+    }
+    
+    public void resizeTable()
+    {
+        framePenumpang.getTblPenumpang().getColumnModel().getColumn(0).setPreferredWidth(1);
+        framePenumpang.getTblPenumpang().getColumnModel().getColumn(1).setPreferredWidth(50);        
+        framePenumpang.getTblPenumpang().getColumnModel().getColumn(3).setPreferredWidth(1);
+        framePenumpang.getTblPenumpang().getColumnModel().getColumn(5).setPreferredWidth(35);
     }
     
     public void updateSlot()
@@ -150,6 +170,9 @@ public class cKeretaCepat {
         framePenumpang.getBtnGroupJenisKelamin().clearSelection();
         framePenumpang.getTaAlamat().setText("");
         framePenumpang.getBtnGroupJamBerangkat().clearSelection();
+        framePenumpang.getCbSearchJam().setSelectedIndex(0);
+        framePenumpang.getCbSearch().setSelectedIndex(0);
+        framePenumpang.getTfSearch().setText("");
     }
     
     public void searchData()
@@ -193,10 +216,10 @@ public class cKeretaCepat {
                 break;
         }
         
-//        iKeretaCepat.searchData(jam, atribut , isiAtributSearch);
         listPenumpang = iKeretaCepat.searchData(jam, atribut , isiAtributSearch);
         mTabelModelPenumpang tabelPenumpang = new mTabelModelPenumpang(listPenumpang);
         framePenumpang.getTblPenumpang().setModel(tabelPenumpang);
+        resizeTable();
         
         
     }

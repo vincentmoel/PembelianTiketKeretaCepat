@@ -51,9 +51,8 @@ public class cKeretaCepat {
         updateSlot();
         resizeTable();
 
-        
-        // Set Width Column
-
+        // Menghilangkan Text Field Status
+//        framePenumpang.getTfStatus().setVisible(false);
     }
     
     public void resizeTable()
@@ -62,6 +61,8 @@ public class cKeretaCepat {
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(1).setPreferredWidth(50);        
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(3).setPreferredWidth(1);
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(5).setPreferredWidth(35);
+        framePenumpang.getTblPenumpang().setRowHeight(40);
+
     }
     
     public void updateSlot()
@@ -142,12 +143,20 @@ public class cKeretaCepat {
         }
         
         boolean success = iKeretaCepat.insertData(penumpang);
+//        framePenumpang.getTfStatus().setVisible(true);
 
         if (success)
         {    
             framePenumpang.getTfStatus().setText("Input Berhasil");
+
+            framePenumpang.getTfStatus().setBackground(Color.green);
         }else{
             framePenumpang.getTfStatus().setText("Input Gagal");
+
+            framePenumpang.getTfStatus().setBackground(Color.red);
+            framePenumpang.getTfStatus().setForeground(Color.white);
+            
+
         }
     }
     
@@ -219,7 +228,6 @@ public class cKeretaCepat {
         listPenumpang = iKeretaCepat.searchData(jam, atribut , isiAtributSearch);
         mTabelModelPenumpang tabelPenumpang = new mTabelModelPenumpang(listPenumpang);
         framePenumpang.getTblPenumpang().setModel(tabelPenumpang);
-        resizeTable();
         
         
     }

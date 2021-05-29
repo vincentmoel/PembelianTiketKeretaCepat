@@ -87,6 +87,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblStatusSlot10 = new javax.swing.JLabel();
         lblStatusSlot14 = new javax.swing.JLabel();
         lblStatusSlot12 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,11 +197,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         });
 
         btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -239,12 +235,19 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblSisaJam12.setText("40");
 
         cbSearchJam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Jam Keberangkatan", "Jam 10 : 00 WIB", "Jam 12 : 00 WIB", "Jam 14 : 00 WIB" }));
+        cbSearchJam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSearchJamActionPerformed(evt);
+            }
+        });
 
         lblStatusSlot10.setText("lblStatusSlot10");
 
         lblStatusSlot14.setText("lblStatusSlot14");
 
         lblStatusSlot12.setText("lblStatusSlot12");
+
+        jToggleButton1.setText("Admin Rights");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,66 +256,69 @@ public class vFormPenumpang extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblId)
-                                        .addComponent(lblJenisKelamin)
-                                        .addComponent(lblJamBerangkat)
-                                        .addComponent(lblNamaLengkap)
-                                        .addComponent(lblAlamat))
-                                    .addGap(43, 43, 43)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(rbJam12)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblHurufSisaJam12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblSisaJam12)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblStatusSlot12))
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(rbJam10)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblHurufSisaJam10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblSisaJam10)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblStatusSlot10))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(tfNik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                                            .addComponent(tfNamaLengkap, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tfId, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(rbLakiLaki)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(rbPerempuan))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(rbJam14)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblHurufSisaJam14)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(lblSisaJam14)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(lblStatusSlot14))))
-                                .addComponent(lblNik)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnUpdate)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblNik)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel10)
-                                .addGap(34, 34, 34)
-                                .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblId)
+                                    .addComponent(lblJenisKelamin)
+                                    .addComponent(lblJamBerangkat)
+                                    .addComponent(lblNamaLengkap)
+                                    .addComponent(lblAlamat))
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbJam12)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblHurufSisaJam12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblSisaJam12)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblStatusSlot12))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbJam10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblHurufSisaJam10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblSisaJam10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblStatusSlot10))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbLakiLaki)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbPerempuan))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbJam14)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblHurufSisaJam14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblSisaJam14)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblStatusSlot14))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfNik, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfNamaLengkap, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tfId, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btnInsert, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(btnUpdate)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(95, 95, 95)
+                                                    .addComponent(jLabel10)))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(tfStatus, javax.swing.GroupLayout.Alignment.LEADING)))))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -332,8 +338,12 @@ public class vFormPenumpang extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel3)
-                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblId)
                     .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,7 +354,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
                     .addComponent(cbSearchJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNik)
@@ -381,16 +390,19 @@ public class vFormPenumpang extends javax.swing.JFrame {
                             .addComponent(lblHurufSisaJam14)
                             .addComponent(lblSisaJam14)
                             .addComponent(lblStatusSlot14))
-                        .addGap(40, 40, 40)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnUpdate)
                             .addComponent(btnDelete)
-                            .addComponent(btnReset)
-                            .addComponent(btnInsert))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))))
+                            .addComponent(btnReset))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
         );
 
@@ -463,10 +475,9 @@ public class vFormPenumpang extends javax.swing.JFrame {
         cKrtCpt.resizeTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void cbSearchJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSearchJamActionPerformed
         // TODO add your handling code here:
-        cKrtCpt.resizeTable();
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_cbSearchJamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -518,6 +529,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblAlamat;
     private javax.swing.JLabel lblHurufSisaJam10;
     private javax.swing.JLabel lblHurufSisaJam12;

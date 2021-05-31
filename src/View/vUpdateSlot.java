@@ -27,21 +27,214 @@ public class vUpdateSlot extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tfSlotBefore10 = new javax.swing.JTextField();
+        tfSlotAfter10 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        tfSlotBefore12 = new javax.swing.JTextField();
+        tfSlotAfter12 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        tfSlotBefore14 = new javax.swing.JTextField();
+        tfSlotAfter14 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        btnCancel = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Pukul 10 : 00 WIB");
+
+        jButton4.setText("jButton4");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel3.setText("PT. KERETA CEPAT STAINC");
+
+        tfSlotBefore10.setEditable(false);
+        tfSlotBefore10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSlotBefore10ActionPerformed(evt);
+            }
+        });
+
+        tfSlotAfter10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSlotAfter10ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Saat ini");
+
+        jLabel4.setText("Setelah Update");
+
+        jLabel5.setText("Pukul 10 : 00 WIB");
+
+        tfSlotBefore12.setEditable(false);
+        tfSlotBefore12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSlotBefore12ActionPerformed(evt);
+            }
+        });
+
+        tfSlotAfter12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSlotAfter12ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Pukul 12 : 00 WIB");
+
+        tfSlotBefore14.setEditable(false);
+        tfSlotBefore14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSlotBefore14ActionPerformed(evt);
+            }
+        });
+
+        tfSlotAfter14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSlotAfter14ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Pukul 14 : 00 WIB");
+
+        btnCancel.setText("Cancel");
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(32, 32, 32)
+                        .addComponent(tfSlotBefore12, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(tfSlotAfter12, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(229, 229, 229)
+                            .addComponent(jLabel3))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(122, 122, 122)
+                            .addComponent(jLabel5)
+                            .addGap(32, 32, 32)
+                            .addComponent(tfSlotBefore10, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(71, 71, 71)
+                            .addComponent(tfSlotAfter10, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(302, 302, 302)
+                            .addComponent(jLabel2)
+                            .addGap(159, 159, 159)
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(32, 32, 32)
+                        .addComponent(tfSlotBefore14, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(tfSlotAfter14, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel3)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSlotAfter10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSlotBefore10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSlotAfter12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSlotBefore12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfSlotAfter14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfSlotBefore14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tfSlotBefore10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSlotBefore10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSlotBefore10ActionPerformed
+
+    private void tfSlotAfter10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSlotAfter10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSlotAfter10ActionPerformed
+
+    private void tfSlotBefore12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSlotBefore12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSlotBefore12ActionPerformed
+
+    private void tfSlotAfter12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSlotAfter12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSlotAfter12ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void tfSlotBefore14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSlotBefore14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSlotBefore14ActionPerformed
+
+    private void tfSlotAfter14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSlotAfter14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSlotAfter14ActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +272,23 @@ public class vUpdateSlot extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField tfSlotAfter10;
+    private javax.swing.JTextField tfSlotAfter12;
+    private javax.swing.JTextField tfSlotAfter14;
+    private javax.swing.JTextField tfSlotBefore10;
+    private javax.swing.JTextField tfSlotBefore12;
+    private javax.swing.JTextField tfSlotBefore14;
     // End of variables declaration//GEN-END:variables
 }

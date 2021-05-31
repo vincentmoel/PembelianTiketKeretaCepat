@@ -45,9 +45,8 @@ public class cAdminLogin {
             int roleDatabase = listAdminLogin.get(0).getRole();
             if(usernameInput.equals(usernameDatabase) && passwordInput.equals(passwordDatabase))
             {
-                new vFormPenumpang().setVisible(true);
                 frameAdminLogin.dispose();
-
+                new vFormPenumpang().setVisible(true);
                 System.out.println("Berhasil Login");
             }
         }else

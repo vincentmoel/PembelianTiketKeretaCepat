@@ -6,6 +6,7 @@
 package View;
 
 import Controller.cAdminLogin;
+import java.awt.event.KeyEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -49,6 +50,12 @@ public class vAdminLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setText("PT. KERETA CEPAT STAINC");
 
+        tfUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfUsernameKeyPressed(evt);
+            }
+        });
+
         jLabel1.setText("Username");
 
         jLabel2.setText("Password");
@@ -57,6 +64,12 @@ public class vAdminLogin extends javax.swing.JFrame {
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
+            }
+        });
+
+        tfPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfPasswordKeyPressed(evt);
             }
         });
 
@@ -131,6 +144,22 @@ public class vAdminLogin extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void tfPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPasswordKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            cAdmin.checkLogin();
+        }
+    }//GEN-LAST:event_tfPasswordKeyPressed
+
+    private void tfUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfUsernameKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            cAdmin.checkLogin();
+        }
+    }//GEN-LAST:event_tfUsernameKeyPressed
 
     /**
      * @param args the command line arguments

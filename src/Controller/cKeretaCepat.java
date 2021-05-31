@@ -295,10 +295,6 @@ public class cKeretaCepat {
     public void isiField(int row)
     {
         framePenumpang.getBtnInsert().setEnabled(false);
-        
-        
-        
-        
         framePenumpang.getTfId().setText(String.valueOf(listPenumpang.get(row).getId()));
         framePenumpang.getTfNik().setText(listPenumpang.get(row).getNik());
         framePenumpang.getTfNamaLengkap().setText(listPenumpang.get(row).getNama());

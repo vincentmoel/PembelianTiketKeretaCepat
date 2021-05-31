@@ -241,6 +241,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblStatusSlot12.setText("lblStatusSlot12");
 
         btnUpdateSlot.setText("Update Slot");
+        btnUpdateSlot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateSlotActionPerformed(evt);
+            }
+        });
 
         btnLogout.setBackground(new java.awt.Color(255, 0, 0));
         btnLogout.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -498,10 +503,16 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         dispose();
         new vAdminLogin().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnUpdateSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSlotActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new vUpdateSlot().setVisible(true);
+    }//GEN-LAST:event_btnUpdateSlotActionPerformed
 
     /**
      * @param args the command line arguments

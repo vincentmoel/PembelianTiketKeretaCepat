@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
-/**
- *
- * @author Vincent Nathaniel
- */
+
 public class vUpdateSlot extends javax.swing.JFrame {
 
-    /**
-     * Creates new form vUpdateSlot
-     */
     public vUpdateSlot() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);        
     }
 
     /**
@@ -117,6 +108,11 @@ public class vUpdateSlot extends javax.swing.JFrame {
         jLabel8.setText("Pukul 14 : 00 WIB");
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +231,12 @@ public class vUpdateSlot extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new vFormPenumpang(1).setVisible(true);
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments

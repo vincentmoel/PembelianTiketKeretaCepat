@@ -237,6 +237,33 @@ public class cKeretaCepat {
     public void isiField(int row)
     {
         framePenumpang.getTfId().setText(String.valueOf(listPenumpang.get(row).getId()));
+        framePenumpang.getTfNik().setText(listPenumpang.get(row).getNik());
+        framePenumpang.getTfNamaLengkap().setText(listPenumpang.get(row).getNama());
+        
+        // Selected radiobutton JK
+        if (listPenumpang.get(row).getJk().equals("L"))
+        {
+            framePenumpang.getRbLakiLaki().setSelected(true);
+        } else 
+        {
+            framePenumpang.getRbPerempuan().setSelected(true);
+        }
+        
+        
+        framePenumpang.getTaAlamat().setText(listPenumpang.get(row).getAlamat());
+        
+        // Selected radiobutton jam berangkat
+        if (listPenumpang.get(row).getJamberangkat().equals("10"))
+        {
+            framePenumpang.getRbJam10().setSelected(true);
+        } else if (listPenumpang.get(row).getJamberangkat().equals("12"))
+        {
+            framePenumpang.getRbJam12().setSelected(true);
+        } else
+        {
+            framePenumpang.getRbJam14().setSelected(true);
+        }
+        
     }
     
 

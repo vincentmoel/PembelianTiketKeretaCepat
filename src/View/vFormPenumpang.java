@@ -463,7 +463,8 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void tblPenumpangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPenumpangMouseClicked
-        // TODO add your handling code here:
+        int row = tblPenumpang.getSelectedRow();
+        cKrtCpt.isiField(row);
     }//GEN-LAST:event_tblPenumpangMouseClicked
 
     private void tfStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfStatusActionPerformed
@@ -473,6 +474,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         cKrtCpt.resizeTable();
+        rbLakiLaki.setSelected(true);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void cbSearchJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSearchJamActionPerformed

@@ -46,13 +46,10 @@ public class DAOAdminLogin implements IDAOAdminLogin{
             mAdminLogin adminLogin = new mAdminLogin();
             adminLogin.setUsername(rs.getString("username"));
             adminLogin.setPassword(rs.getString("password"));
-            adminLogin.setRole(rs.getInt("role"));
             listAdminLogin.add(adminLogin);
 
             System.out.println(listAdminLogin.get(0).getUsername());
             System.out.println(listAdminLogin.get(0).getPassword());
-            System.out.println(listAdminLogin.get(0).getRole());
-
 
                     
         } catch (Exception e) 

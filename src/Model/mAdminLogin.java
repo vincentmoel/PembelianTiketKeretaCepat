@@ -13,7 +13,6 @@ public class mAdminLogin {
     private String nama;
     private String username;
     private String password;
-    private int role;
 
     
     public String getNama() {
@@ -39,16 +38,6 @@ public class mAdminLogin {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
-    
-    
     
     
 }

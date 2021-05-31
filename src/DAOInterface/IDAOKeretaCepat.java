@@ -20,7 +20,7 @@ public interface IDAOKeretaCepat {
     public boolean insertData(mPenumpang penumpang);
     
     // Update Data
-    public void updateData(mPenumpang penumpang);
+    public boolean updateData(mPenumpang penumpang);
     
     // Delete Data
     public void deleteData(mPenumpang penumpang);

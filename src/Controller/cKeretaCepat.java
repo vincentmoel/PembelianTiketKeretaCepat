@@ -234,5 +234,10 @@ public class cKeretaCepat {
         
     }
     
+    public void isiField(int row)
+    {
+        framePenumpang.getTfId().setText(String.valueOf(listPenumpang.get(row).getId()));
+    }
+    
 
 }

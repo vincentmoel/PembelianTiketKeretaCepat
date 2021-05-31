@@ -566,6 +566,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
         return tblPenumpang;
     }
     
+    public JTextField getTfId()
+    {
+        return tfId;
+    }
+    
     public JTextField getTfNik()
     {
         return tfNik;

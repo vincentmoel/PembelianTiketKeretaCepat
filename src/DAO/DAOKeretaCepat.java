@@ -32,6 +32,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
 //    SQL
     String queryRead = "SELECT * FROM tbl_penumpang;";
     String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
+    String queryUpdate = "UPDATE tbl_penumpang SET id_penumpang=?, nik=?, nama=?, jk=?, alamat=?, jamberangkat=?;";
     String queryCount = "SELECT COUNT(jamberangkat) AS jml FROM tbl_penumpang WHERE jamberangkat = ?;";
     String querySlot = "SELECT slot_berangkat FROM tbl_jadwal WHERE jam_berangkat = ?;";
     String querySearch;
@@ -100,9 +101,38 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     }
 
     @Override
-    public void updateData(mPenumpang penumpang) 
+    public boolean updateData(mPenumpang penumpang) 
     {
+        boolean success = true;
+        PreparedStatement statement = null;
         
+        try 
+        {
+            statement = con.prepareStatement(queryUpdate);
+            statement.setInt(1, penumpang.getId());
+            statement.setString(2, penumpang.getNik());
+            statement.setString(3, penumpang.getNama());
+            statement.setString(4, penumpang.getJk());
+            statement.setString(5, penumpang.getAlamat());
+            statement.setString(6, penumpang.getJamberangkat());
+            statement.execute();
+        } catch(SQLException e)
+        {
+            success = false;            
+        }
+        finally
+        {
+            try 
+            {
+                statement.close();
+            } catch (SQLException ex) 
+            {
+                System.out.println("Gagal Update");
+                success = false;            
+
+            }
+        }
+        return success;
     }
 
     @Override

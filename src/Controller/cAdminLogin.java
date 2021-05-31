@@ -10,6 +10,7 @@ import DAOInterface.IDAOAdminLogin;
 import Model.mAdminLogin;
 import View.vAdminLogin;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,7 +40,7 @@ public class cAdminLogin {
         {
             String usernameDatabase = listAdminLogin.get(0).getUsername();
             String passwordDatabase = listAdminLogin.get(0).getPassword();
-            if(usernameInput.equals(usernameDatabase))
+            if(usernameInput.equals(usernameDatabase) && passwordInput.equals(passwordDatabase))
             {
                 System.out.println("Berhasil Login");
             }else
@@ -48,7 +49,7 @@ public class cAdminLogin {
             }
         }else
         {
-            System.out.println("Muncul Pop Up Salah");
+            JOptionPane.showMessageDialog(null, "Username dan Password Salah");
         }
 
         

@@ -251,6 +251,14 @@ public class vFormPenumpang extends javax.swing.JFrame {
         btnLogout.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseExited(evt);
+            }
+        });
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
@@ -462,15 +470,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }//GEN-LAST:event_rbJam14ActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        // TODO add your handling code here:
-        
         cKrtCpt.insertData();
         cKrtCpt.readData();
         cKrtCpt.resetData();
         cKrtCpt.updateSlot();
         cKrtCpt.resizeTable();
-
-        
 
     }//GEN-LAST:event_btnInsertActionPerformed
 
@@ -513,6 +517,17 @@ public class vFormPenumpang extends javax.swing.JFrame {
         dispose();
         new vUpdateSlot().setVisible(true);
     }//GEN-LAST:event_btnUpdateSlotActionPerformed
+
+    private void btnLogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseEntered
+        // TODO add your handling code here:
+        btnLogout.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnLogoutMouseEntered
+
+    private void btnLogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseExited
+        // TODO add your handling code here:
+        btnLogout.setForeground(Color.WHITE);
+
+    }//GEN-LAST:event_btnLogoutMouseExited
 
     /**
      * @param args the command line arguments

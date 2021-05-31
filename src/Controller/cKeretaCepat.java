@@ -46,9 +46,6 @@ public class cKeretaCepat {
         updateSlot();
         resizeTable();
         roleSetting(); 
-        
-        
-      
 
         // Menghilangkan Text Field Status
 //        framePenumpang.getTfStatus().setVisible(false);
@@ -70,8 +67,6 @@ public class cKeretaCepat {
     {
         if(roleDatabase == 2) // USER BIASA
         {
-            framePenumpang.getBtnUpdate().setEnabled(false);
-            framePenumpang.getBtnDelete().setEnabled(false);
             framePenumpang.getBtnUpdateSlot().setEnabled(false);
         }
     }
@@ -156,21 +151,27 @@ public class cKeretaCepat {
             penumpang.setJamberangkat("14"); 
         }
         
-        boolean success = iKeretaCepat.insertData(penumpang);
-//        framePenumpang.getTfStatus().setVisible(true);
+        boolean success = false;
+        boolean isEmpty = isEmpty();
+        
+        if(!isEmpty)
+        {
+            success = iKeretaCepat.insertData(penumpang);
+            if (success)
+            {    
+                framePenumpang.getTfStatus().setText("Input Berhasil");
+                framePenumpang.getTfStatus().setBackground(Color.green);
+                framePenumpang.getTfStatus().setForeground(Color.black);
 
-        if (success)
-        {    
-            framePenumpang.getTfStatus().setText("Input Berhasil");
-
-            framePenumpang.getTfStatus().setBackground(Color.green);
+            }else{
+                framePenumpang.getTfStatus().setText("Input Gagal");
+                framePenumpang.getTfStatus().setBackground(Color.red);
+                framePenumpang.getTfStatus().setForeground(Color.white);
+            }
         }else{
             framePenumpang.getTfStatus().setText("Input Gagal");
-
             framePenumpang.getTfStatus().setBackground(Color.red);
             framePenumpang.getTfStatus().setForeground(Color.white);
-            
-
         }
     }
     
@@ -204,20 +205,27 @@ public class cKeretaCepat {
             penumpang.setJamberangkat("14"); 
         }
         
-        boolean success = iKeretaCepat.updateData(penumpang);
+        boolean success = false;
+        boolean isEmpty = isEmpty();
         
-        if (success)
-        {    
-            framePenumpang.getTfStatus().setText("Update Berhasil");
+        if(!isEmpty)
+        {
+            success = iKeretaCepat.updateData(penumpang);
+            if (success)
+            {    
+                framePenumpang.getTfStatus().setText("Update Berhasil");
+                framePenumpang.getTfStatus().setBackground(Color.green);
+                framePenumpang.getTfStatus().setForeground(Color.black);
 
-            framePenumpang.getTfStatus().setBackground(Color.green);
+            }else{
+                framePenumpang.getTfStatus().setText("Update Gagal");
+                framePenumpang.getTfStatus().setBackground(Color.red);
+                framePenumpang.getTfStatus().setForeground(Color.white);
+            }
         }else{
             framePenumpang.getTfStatus().setText("Update Gagal");
-
             framePenumpang.getTfStatus().setBackground(Color.red);
             framePenumpang.getTfStatus().setForeground(Color.white);
-            
-
         }
         
     }
@@ -241,6 +249,8 @@ public class cKeretaCepat {
         framePenumpang.getCbSearch().setSelectedIndex(0);
         framePenumpang.getTfSearch().setText("");
         framePenumpang.getBtnInsert().setEnabled(true);
+        framePenumpang.getBtnUpdate().setEnabled(false);
+        framePenumpang.getBtnDelete().setEnabled(false);
 
     }
     
@@ -294,6 +304,12 @@ public class cKeretaCepat {
     
     public void isiField(int row)
     {
+        if(roleDatabase == 1)
+        {
+            framePenumpang.getBtnUpdate().setEnabled(true);
+            framePenumpang.getBtnDelete().setEnabled(true);
+        }
+        
         framePenumpang.getBtnInsert().setEnabled(false);
         framePenumpang.getTfId().setText(String.valueOf(listPenumpang.get(row).getId()));
         framePenumpang.getTfNik().setText(listPenumpang.get(row).getNik());
@@ -323,6 +339,32 @@ public class cKeretaCepat {
             framePenumpang.getRbJam14().setSelected(true);
         }
         
+    }
+    
+    public boolean isEmpty()
+    {
+        String tfNik = framePenumpang.getTfNik().getText();
+        String tfNamaLengkap = framePenumpang.getTfNamaLengkap().getText();
+        String taAlamat = framePenumpang.getTaAlamat().getText();
+        
+        if(tfNik.equals("")){
+            System.out.println("NIK KOSONG");
+        }
+        
+        if(tfNamaLengkap.equals(""))
+        {
+            System.out.println("NAMA KOSONG");
+        }
+        
+        if(taAlamat.equals("")){
+            System.out.println("ALAMAT KOSONG");
+        }
+        
+        if(tfNik.equals("") || tfNamaLengkap.equals("") || taAlamat.equals("")){
+            System.out.println("MASOK");
+            return true;
+        }
+        return false;
     }
     
 

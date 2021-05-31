@@ -1,6 +1,6 @@
 package DAOInterface;
 
 
-public class IDAOUpdateSlot {
+public interface IDAOUpdateSlot {
     
 }

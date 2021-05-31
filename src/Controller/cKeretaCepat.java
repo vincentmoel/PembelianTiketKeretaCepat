@@ -79,17 +79,20 @@ public class cKeretaCepat {
     public void updateSlot()
     {
         // Update Slot Kursi
-        int slot = iKeretaCepat.getSlotData("10");
+        int slot10 = iKeretaCepat.getSlotData("10");
+        int slot12 = iKeretaCepat.getSlotData("12");
+        int slot14 = iKeretaCepat.getSlotData("14");
+
 //        int count10 = 40;
         int count10 = iKeretaCepat.getCountData("10");
         int count12 = iKeretaCepat.getCountData("12");
         int count14 = iKeretaCepat.getCountData("14");
         
-        framePenumpang.getLblSisaJam10().setText(String.valueOf(slot - count10));
-        framePenumpang.getLblSisaJam12().setText(String.valueOf(slot - count12));
-        framePenumpang.getLblSisaJam14().setText(String.valueOf(slot - count14));
+        framePenumpang.getLblSisaJam10().setText(String.valueOf(slot10 - count10));
+        framePenumpang.getLblSisaJam12().setText(String.valueOf(slot12 - count12));
+        framePenumpang.getLblSisaJam14().setText(String.valueOf(slot14 - count14));
         
-        if (slot - count10 == 0)
+        if (slot10 - count10 == 0)
         {
             framePenumpang.getRbJam10().setEnabled(false);
             framePenumpang.getLbLHurufSisaJam10().setEnabled(false);
@@ -98,7 +101,7 @@ public class cKeretaCepat {
             framePenumpang.getLblStatusSlot10().setForeground(Color.RED);
 
         }
-        if (slot - count12 == 0)
+        if (slot12 - count12 == 0)
         {
             framePenumpang.getRbJam12().setEnabled(false);
             framePenumpang.getLbLHurufSisaJam12().setEnabled(false);
@@ -106,7 +109,7 @@ public class cKeretaCepat {
             framePenumpang.getLblStatusSlot12().setText("HABIS");
             framePenumpang.getLblStatusSlot12().setForeground(Color.RED);
         }
-        if (slot - count14 == 0)
+        if (slot14 - count14 == 0)
         {
             framePenumpang.getRbJam14().setEnabled(false);
             framePenumpang.getLbLHurufSisaJam14().setEnabled(false);
@@ -292,6 +295,10 @@ public class cKeretaCepat {
     public void isiField(int row)
     {
         framePenumpang.getBtnInsert().setEnabled(false);
+        
+        
+        
+        
         framePenumpang.getTfId().setText(String.valueOf(listPenumpang.get(row).getId()));
         framePenumpang.getTfNik().setText(listPenumpang.get(row).getNik());
         framePenumpang.getTfNamaLengkap().setText(listPenumpang.get(row).getNama());

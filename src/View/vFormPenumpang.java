@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import Controller.cKeretaCepat;
 import DAO.DAOKeretaCepat;
 import DAOInterface.IDAOKeretaCepat;
+import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JButton;
@@ -18,28 +14,13 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Vincent Nathaniel
- */
 public class vFormPenumpang extends javax.swing.JFrame {
 
-    /**
-     * Creates new form vFormPenumpang
-     */
-    public vFormPenumpang() {
+    public vFormPenumpang(int roleDatabase) {
         initComponents();
-        cKrtCpt = new Controller.cKeretaCepat(this);
+        this.setExtendedState(MAXIMIZED_BOTH);
+        cKrtCpt = new Controller.cKeretaCepat(this,roleDatabase);
         cKrtCpt.startApp();
-
-//        this.setExtendedState(MAXIMIZED_BOTH);
-    }
-    
-    public vFormPenumpang(int role) {
-        initComponents();
-        cKrtCpt = new Controller.cKeretaCepat(this);
-        cKrtCpt.startApp();
-        getTfStatus().setText(String.valueOf(role));
     }
 
     /**
@@ -92,7 +73,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblStatusSlot10 = new javax.swing.JLabel();
         lblStatusSlot14 = new javax.swing.JLabel();
         lblStatusSlot12 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnUpdateSlot = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -257,7 +238,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         lblStatusSlot12.setText("lblStatusSlot12");
 
-        jToggleButton1.setText("Admin Rights");
+        btnUpdateSlot.setText("Update Slot");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,7 +250,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnUpdateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNik)
@@ -352,7 +333,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnUpdateSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblId)
@@ -451,8 +432,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         cKrtCpt.readData();
         tfStatus.setText("");
         cKrtCpt.resizeTable();
-
-        
+        tfStatus.setBackground(Color.WHITE);        
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void rbJam14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam14ActionPerformed
@@ -543,6 +523,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdateSlot;
     private javax.swing.JComboBox<String> cbSearch;
     private javax.swing.JComboBox<String> cbSearchJam;
     private javax.swing.JLabel jLabel10;
@@ -550,7 +531,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblAlamat;
     private javax.swing.JLabel lblHurufSisaJam10;
     private javax.swing.JLabel lblHurufSisaJam12;
@@ -696,6 +676,16 @@ public class vFormPenumpang extends javax.swing.JFrame {
         return btnInsert;
     }
     
+    public JButton getBtnUpdate()
+    {
+        return btnUpdate;
+    }
+    
+    public JButton getBtnDelete()
+    {
+        return btnDelete;
+    }
+    
     public JComboBox getCbSearchJam()
     {
         return cbSearchJam;
@@ -711,6 +701,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
         return tfSearch;
     }
     
+    public JButton getBtnUpdateSlot()
+    {
+        return btnUpdateSlot;
+    }
     
     
 

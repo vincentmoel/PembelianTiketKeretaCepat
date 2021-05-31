@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import Controller.cAdminLogin;
@@ -10,23 +5,14 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-
-/**
- *
- * @author Vincent Nathaniel
- */
 public class vAdminLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form vAdminLogin
-     */
     public vAdminLogin() {
         initComponents();
         cAdmin = new Controller.cAdminLogin(this);
 
         setLocationRelativeTo(null);
         setResizable(false);
-       
     }
 
     /**

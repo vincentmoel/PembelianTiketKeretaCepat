@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import DAO.DAOKeretaCepat;
@@ -16,18 +11,17 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Vincent Nathaniel
- */
+
 public class cKeretaCepat {
     vFormPenumpang framePenumpang;
     IDAOKeretaCepat iKeretaCepat;
     List<mPenumpang> listPenumpang;
+    private int roleDatabase;
     
-    public cKeretaCepat(vFormPenumpang framePenumpang)
+    public cKeretaCepat(vFormPenumpang framePenumpang, int roleDatabase)
     {
         this.framePenumpang = framePenumpang;
+        this.roleDatabase = roleDatabase;
         iKeretaCepat = new DAOKeretaCepat();
     }
     
@@ -51,6 +45,7 @@ public class cKeretaCepat {
         readData();
         updateSlot();
         resizeTable();
+        roleSetting(); 
         
         
       
@@ -69,6 +64,16 @@ public class cKeretaCepat {
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(5).setPreferredWidth(35);
         framePenumpang.getTblPenumpang().setRowHeight(40);
 
+    }
+    
+    public void roleSetting()
+    {
+        if(roleDatabase == 2) // USER BIASA
+        {
+            framePenumpang.getBtnUpdate().setEnabled(false);
+            framePenumpang.getBtnDelete().setEnabled(false);
+            framePenumpang.getBtnUpdateSlot().setEnabled(false);
+        }
     }
     
     public void updateSlot()
@@ -223,6 +228,7 @@ public class cKeretaCepat {
     
     public void resetData()
     {
+        framePenumpang.getTfId().setText("");
         framePenumpang.getTfNik().setText("");
         framePenumpang.getTfNamaLengkap().setText("");
         framePenumpang.getBtnGroupJenisKelamin().clearSelection();
@@ -231,6 +237,8 @@ public class cKeretaCepat {
         framePenumpang.getCbSearchJam().setSelectedIndex(0);
         framePenumpang.getCbSearch().setSelectedIndex(0);
         framePenumpang.getTfSearch().setText("");
+        framePenumpang.getBtnInsert().setEnabled(true);
+
     }
     
     public void searchData()
@@ -283,6 +291,7 @@ public class cKeretaCepat {
     
     public void isiField(int row)
     {
+        framePenumpang.getBtnInsert().setEnabled(false);
         framePenumpang.getTfId().setText(String.valueOf(listPenumpang.get(row).getId()));
         framePenumpang.getTfNik().setText(listPenumpang.get(row).getNik());
         framePenumpang.getTfNamaLengkap().setText(listPenumpang.get(row).getNama());

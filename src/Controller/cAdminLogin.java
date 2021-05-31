@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import DAO.DAOAdminLogin;
@@ -13,27 +8,21 @@ import View.vFormPenumpang;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Vincent Nathaniel
- */
+
 public class cAdminLogin {
     vAdminLogin frameAdminLogin;
     
     IDAOAdminLogin iAdminLogin;
     List<mAdminLogin> listAdminLogin;
     
-    public cAdminLogin(vAdminLogin fraAdminLogin)
+    public cAdminLogin(vAdminLogin frameAdminLogin)
     {
-        this.frameAdminLogin = fraAdminLogin;
+        this.frameAdminLogin = frameAdminLogin;
         iAdminLogin = new DAOAdminLogin();
     }
     
     public void checkLogin()
     {
-//        mAdminLogin userAdmin = new mAdminLogin();
-//        userAdmin
-        
         String usernameInput = frameAdminLogin.getTfUsername().getText();
         String passwordInput = new String(frameAdminLogin.getTfPassword().getPassword());
         listAdminLogin = iAdminLogin.checkLogin(usernameInput, passwordInput);

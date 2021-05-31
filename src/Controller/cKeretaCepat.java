@@ -9,6 +9,7 @@ import DAO.DAOKeretaCepat;
 import DAOInterface.IDAOKeretaCepat;
 import Model.mPenumpang;
 import Model.mTabelModelPenumpang;
+import View.vAdminLogin;
 import View.vFormPenumpang;
 import java.awt.Color;
 import java.util.List;
@@ -50,6 +51,9 @@ public class cKeretaCepat {
         readData();
         updateSlot();
         resizeTable();
+        
+        
+      
 
         // Menghilangkan Text Field Status
 //        framePenumpang.getTfStatus().setVisible(false);

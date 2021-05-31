@@ -26,6 +26,7 @@ public class vAdminLogin extends javax.swing.JFrame {
 
         setLocationRelativeTo(null);
         setResizable(false);
+       
     }
 
     /**
@@ -134,11 +135,11 @@ public class vAdminLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-        
-
+        // TODO add your handling code here:          
         cAdmin.checkLogin();
-        
+//        String username = this.tfUsername.getText();
+//        String password = new String(this.getTfPassword().getPassword());
+//        new vFormPenumpang(username, password).setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -217,6 +218,7 @@ public class vAdminLogin extends javax.swing.JFrame {
     {
         return tfPassword;
     }
+
 
 
 }

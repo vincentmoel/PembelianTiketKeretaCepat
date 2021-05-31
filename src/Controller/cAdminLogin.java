@@ -46,15 +46,17 @@ public class cAdminLogin {
             if(usernameInput.equals(usernameDatabase) && passwordInput.equals(passwordDatabase))
             {
                 frameAdminLogin.dispose();
-                new vFormPenumpang().setVisible(true);
-                System.out.println("Berhasil Login");
+                new vFormPenumpang(roleDatabase).setVisible(true);
+                System.out.println("Berhasil Login");            
             }
         }else
         {
+           
             JOptionPane.showMessageDialog(null, "Username atau Password Salah","Login Gagal",JOptionPane.ERROR_MESSAGE);
+            
         }
-
-        
-        
+     
     }
+    
+  
 }

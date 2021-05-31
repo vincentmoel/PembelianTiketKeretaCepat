@@ -32,9 +32,14 @@ public class vFormPenumpang extends javax.swing.JFrame {
         cKrtCpt = new Controller.cKeretaCepat(this);
         cKrtCpt.startApp();
 
-        
-
 //        this.setExtendedState(MAXIMIZED_BOTH);
+    }
+    
+    public vFormPenumpang(int role) {
+        initComponents();
+        cKrtCpt = new Controller.cKeretaCepat(this);
+        cKrtCpt.startApp();
+        getTfStatus().setText(String.valueOf(role));
     }
 
     /**

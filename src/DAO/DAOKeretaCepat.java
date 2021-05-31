@@ -32,7 +32,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
 //    SQL
     String queryRead = "SELECT * FROM tbl_penumpang;";
     String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
-    String queryUpdate = "UPDATE tbl_penumpang SET id_penumpang=?, nik=?, nama=?, jk=?, alamat=?, jamberangkat=?;";
+    String queryUpdate = "UPDATE tbl_penumpang set nik=?, nama=?, jk=?, alamat=?, jamberangkat=? WHERE id_penumpang=?;";
     String queryCount = "SELECT COUNT(jamberangkat) AS jml FROM tbl_penumpang WHERE jamberangkat = ?;";
     String querySlot = "SELECT slot_berangkat FROM tbl_jadwal WHERE jam_berangkat = ?;";
     String querySearch;
@@ -109,15 +109,17 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         try 
         {
             statement = con.prepareStatement(queryUpdate);
-            statement.setInt(1, penumpang.getId());
-            statement.setString(2, penumpang.getNik());
-            statement.setString(3, penumpang.getNama());
-            statement.setString(4, penumpang.getJk());
-            statement.setString(5, penumpang.getAlamat());
-            statement.setString(6, penumpang.getJamberangkat());
+            statement.setString(1, penumpang.getNik());
+            statement.setString(2, penumpang.getNama());
+            statement.setString(3, penumpang.getJk());
+            statement.setString(4, penumpang.getAlamat());
+            statement.setString(5, penumpang.getJamberangkat());
+            statement.setInt(6, penumpang.getId());
+            
             statement.execute();
         } catch(SQLException e)
         {
+            System.out.println("UPDATE GAGAL");
             success = false;            
         }
         finally

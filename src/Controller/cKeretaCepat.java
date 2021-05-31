@@ -164,6 +164,49 @@ public class cKeretaCepat {
     
     public void updateData()
     {
+        mPenumpang penumpang = new mPenumpang();
+        penumpang.setId(Integer.parseInt(framePenumpang.getTfId().getText()));
+        penumpang.setNik(framePenumpang.getTfNik().getText());
+        penumpang.setNama(framePenumpang.getTfNamaLengkap().getText());
+        
+        // set Radiobutton JK
+        if(framePenumpang.getRbLakiLaki().isSelected())
+        {
+            penumpang.setJk("L");
+        }else if(framePenumpang.getRbPerempuan().isSelected())
+        {
+            penumpang.setJk("P");
+        }
+        
+        penumpang.setAlamat(framePenumpang.getTaAlamat().getText());
+        
+        // set jam berangkat
+        if(framePenumpang.getRbJam10().isSelected())
+        {         
+            penumpang.setJamberangkat("10");
+        }else if(framePenumpang.getRbJam12().isSelected())
+        {
+            penumpang.setJamberangkat("12");  
+        }else
+        {
+            penumpang.setJamberangkat("14"); 
+        }
+        
+        boolean success = iKeretaCepat.updateData(penumpang);
+        
+        if (success)
+        {    
+            framePenumpang.getTfStatus().setText("Update Berhasil");
+
+            framePenumpang.getTfStatus().setBackground(Color.green);
+        }else{
+            framePenumpang.getTfStatus().setText("Update Gagal");
+
+            framePenumpang.getTfStatus().setBackground(Color.red);
+            framePenumpang.getTfStatus().setForeground(Color.white);
+            
+
+        }
         
     }
     

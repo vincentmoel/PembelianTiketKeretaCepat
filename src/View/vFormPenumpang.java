@@ -197,6 +197,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
         });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -474,12 +479,21 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         cKrtCpt.resizeTable();
-        rbLakiLaki.setSelected(true);
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void cbSearchJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSearchJamActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSearchJamActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        
+        cKrtCpt.updateData();
+        cKrtCpt.readData();
+        cKrtCpt.resetData();
+        cKrtCpt.updateSlot();
+        cKrtCpt.resizeTable();
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments

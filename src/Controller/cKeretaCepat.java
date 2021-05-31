@@ -58,8 +58,10 @@ public class cKeretaCepat {
     public void resizeTable()
     {
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(0).setPreferredWidth(1);
-        framePenumpang.getTblPenumpang().getColumnModel().getColumn(1).setPreferredWidth(50);        
+        framePenumpang.getTblPenumpang().getColumnModel().getColumn(1).setPreferredWidth(70);        
+        framePenumpang.getTblPenumpang().getColumnModel().getColumn(2).setPreferredWidth(150);        
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(3).setPreferredWidth(1);
+        framePenumpang.getTblPenumpang().getColumnModel().getColumn(4).setPreferredWidth(150);
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(5).setPreferredWidth(35);
         framePenumpang.getTblPenumpang().setRowHeight(40);
 

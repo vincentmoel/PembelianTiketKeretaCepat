@@ -9,6 +9,7 @@ import DAO.DAOAdminLogin;
 import DAOInterface.IDAOAdminLogin;
 import Model.mAdminLogin;
 import View.vAdminLogin;
+import View.vFormPenumpang;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class cAdminLogin {
     vAdminLogin frameAdminLogin;
+    
     IDAOAdminLogin iAdminLogin;
     List<mAdminLogin> listAdminLogin;
     
@@ -40,16 +42,17 @@ public class cAdminLogin {
         {
             String usernameDatabase = listAdminLogin.get(0).getUsername();
             String passwordDatabase = listAdminLogin.get(0).getPassword();
+            int roleDatabase = listAdminLogin.get(0).getRole();
             if(usernameInput.equals(usernameDatabase) && passwordInput.equals(passwordDatabase))
             {
+                new vFormPenumpang().setVisible(true);
+                frameAdminLogin.dispose();
+
                 System.out.println("Berhasil Login");
-            }else
-            {
-                System.out.println("Username Pass Salah");
             }
         }else
         {
-            JOptionPane.showMessageDialog(null, "Username dan Password Salah");
+            JOptionPane.showMessageDialog(null, "Username atau Password Salah","Login Gagal",JOptionPane.ERROR_MESSAGE);
         }
 
         

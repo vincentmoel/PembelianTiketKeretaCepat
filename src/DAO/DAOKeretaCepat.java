@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DAOKeretaCepat implements IDAOKeretaCepat
 {
-    String a = null;
+//    String a = null;
     Connection con;
     public DAOKeretaCepat()
     {

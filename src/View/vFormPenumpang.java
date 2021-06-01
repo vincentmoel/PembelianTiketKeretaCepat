@@ -4,6 +4,7 @@ import Controller.cKeretaCepat;
 import DAO.DAOKeretaCepat;
 import DAOInterface.IDAOKeretaCepat;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JButton;
@@ -195,6 +196,11 @@ public class vFormPenumpang extends javax.swing.JFrame {
         tfSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSearchActionPerformed(evt);
+            }
+        });
+        tfSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfSearchKeyPressed(evt);
             }
         });
 
@@ -476,6 +482,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
     private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfSearchActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -587,6 +594,15 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void taAlamatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taAlamatMouseClicked
         cKrtCpt.resetBorder();
     }//GEN-LAST:event_taAlamatMouseClicked
+
+    private void tfSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSearchKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            cKrtCpt.searchData();
+            cKrtCpt.resizeTable();
+        }
+    }//GEN-LAST:event_tfSearchKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

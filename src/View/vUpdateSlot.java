@@ -264,6 +264,7 @@ public class vUpdateSlot extends javax.swing.JFrame {
             cUpdtSlot.updateSlot();
             cUpdtSlot.refresh(); 
             
+            // jika slot data sudah cocok, pindah ke form penumpang
             if (!cUpdtSlot.isEmpty(false) && cUpdtSlot.isEnough(false))
             {
                 dispose();

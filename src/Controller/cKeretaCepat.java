@@ -50,6 +50,7 @@ public class cKeretaCepat {
         updateSlot();
         resizeTable();
         roleSetting(); 
+        resetData();
 
         // Menghilangkan Text Field Status
 //        framePenumpang.getTfStatus().setVisible(false);
@@ -72,6 +73,8 @@ public class cKeretaCepat {
         if(roleDatabase == 2) // USER BIASA
         {
             framePenumpang.getBtnUpdateSlot().setEnabled(false);
+            framePenumpang.getBtnUpdate().setEnabled(false);
+            framePenumpang.getBtnDelete().setEnabled(false);
         }
     }
     
@@ -239,30 +242,16 @@ public class cKeretaCepat {
     public void deleteData()
     {
         String id_penumpang = framePenumpang.getTfId().getText();
-        
-        
-        boolean success = false;
-        boolean isEmpty = isEmpty();
-        
-        if(!isEmpty)
-        {
-            success = iKeretaCepat.deleteData(Integer.parseInt(id_penumpang));
-            if (success)
-            {    
-                framePenumpang.getTfStatus().setText("Delete Berhasil");
-                framePenumpang.getTfStatus().setBackground(Color.green);
-                framePenumpang.getTfStatus().setForeground(Color.black);
-
-            }else{
-                framePenumpang.getTfStatus().setText("Delete Gagal");
-                framePenumpang.getTfStatus().setBackground(Color.red);
-                framePenumpang.getTfStatus().setForeground(Color.white);
-            }
+        boolean success = iKeretaCepat.deleteData(Integer.parseInt(id_penumpang));
+        if (success)
+        {    
+            framePenumpang.getTfStatus().setText("Delete Berhasil");
+            framePenumpang.getTfStatus().setBackground(Color.green);
+            framePenumpang.getTfStatus().setForeground(Color.black);
         }else{
             framePenumpang.getTfStatus().setText("Delete Gagal");
             framePenumpang.getTfStatus().setBackground(Color.red);
             framePenumpang.getTfStatus().setForeground(Color.white);
-            
         }
     }
     
@@ -280,8 +269,8 @@ public class cKeretaCepat {
         framePenumpang.getCbSearch().setSelectedIndex(0);
         framePenumpang.getTfSearch().setText("");
         framePenumpang.getBtnInsert().setEnabled(true);
-//        framePenumpang.getBtnUpdate().setEnabled(false);
-//        framePenumpang.getBtnDelete().setEnabled(false);
+        framePenumpang.getBtnUpdate().setEnabled(false);
+        framePenumpang.getBtnDelete().setEnabled(false);
 
     }
     

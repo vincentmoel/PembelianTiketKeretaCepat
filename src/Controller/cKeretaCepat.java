@@ -183,9 +183,9 @@ public class cKeretaCepat {
     public void updateData()
     {
         mPenumpang penumpang = new mPenumpang();
-        penumpang.setId(Integer.parseInt(framePenumpang.getTfId().getText()));
-        penumpang.setNik(framePenumpang.getTfNik().getText());
-        penumpang.setNama(framePenumpang.getTfNamaLengkap().getText());
+        penumpang.setId(Integer.parseInt(framePenumpang.getTfId().getText().trim()));
+        penumpang.setNik(framePenumpang.getTfNik().getText().trim());
+        penumpang.setNama(framePenumpang.getTfNamaLengkap().getText().trim());
         
         // set Radiobutton JK
         if(framePenumpang.getRbLakiLaki().isSelected())

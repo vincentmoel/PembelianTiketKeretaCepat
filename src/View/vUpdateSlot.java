@@ -1,14 +1,20 @@
 package View;
 
+import Controller.cUpdateSlot;
 import javax.swing.JTextField;
 
 
 public class vUpdateSlot extends javax.swing.JFrame {
+    
+    cUpdateSlot cUpdtSlot;
 
     public vUpdateSlot() {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);        
+        setResizable(false);
+
+        cUpdtSlot = new Controller.cUpdateSlot(this);
+        cUpdtSlot.startApp();
     }
 
     /**
@@ -249,6 +255,8 @@ public class vUpdateSlot extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        cUpdtSlot.updateSlot();
+        cUpdtSlot.refresh();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed

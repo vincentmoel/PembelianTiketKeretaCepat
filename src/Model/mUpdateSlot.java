@@ -4,7 +4,7 @@ package Model;
 public class mUpdateSlot {
     private int id_berangkat;
     private String jam_berangkat;
-    private String slot_berangkat;
+    private int slot_berangkat;
 
     public int getId_berangkat() {
         return id_berangkat;
@@ -22,11 +22,11 @@ public class mUpdateSlot {
         this.jam_berangkat = jam_berangkat;
     }
 
-    public String getSlot_berangkat() {
+    public int getSlot_berangkat() {
         return slot_berangkat;
     }
 
-    public void setSlot_berangkat(String slot_berangkat) {
+    public void setSlot_berangkat(int slot_berangkat) {
         this.slot_berangkat = slot_berangkat;
     }
     

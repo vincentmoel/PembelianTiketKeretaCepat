@@ -24,23 +24,24 @@ public class cUpdateSlot {
         return iUpdateSlot.getSlotDatabase(jam);
     }
     
+//    public int convertToNumeric()
+    
     public void updateSlot()
     {
-        int tfAfter10 = Integer.parseInt(frameUpdateSlot.getTfSlotAfter10().getText());
-        int tfAfter12 = Integer.parseInt(frameUpdateSlot.getTfSlotAfter12().getText());
-        int tfAfter14 = Integer.parseInt(frameUpdateSlot.getTfSlotAfter14().getText());
+        String tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText();
+        String tfAfter12 = frameUpdateSlot.getTfSlotAfter12().getText();
+        String tfAfter14 = frameUpdateSlot.getTfSlotAfter14().getText();
         
         boolean success10 = false;
         boolean success12 = false;
         boolean success14 = false;
-        boolean isEmpty;
-        isEmpty = isEmpty();
+        boolean isEmpty = this.isEmpty();
         
         if(!isEmpty)
         {
-            success10 = iUpdateSlot.updateSlotDatabase(tfAfter10, "10");
-            success12 = iUpdateSlot.updateSlotDatabase(tfAfter12, "12");
-            success14 = iUpdateSlot.updateSlotDatabase(tfAfter14, "14");
+            success10 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter10), "10");
+            success12 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter12), "12");
+            success14 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter14), "14");
             if (success10 && success12 && success14)
             {    
 //                framePenumpang.getTfStatus().setText("Update Berhasil");
@@ -56,8 +57,6 @@ public class cUpdateSlot {
 //            framePenumpang.getTfStatus().setText("Update Gagal");
 //            framePenumpang.getTfStatus().setBackground(Color.red);
 //            framePenumpang.getTfStatus().setForeground(Color.white);
-
-            JOptionPane.showMessageDialog(null, "EMPTY");
             
         }
     }
@@ -104,7 +103,7 @@ public class cUpdateSlot {
         if(success)
         {
             this.startApp();
-            JOptionPane.showMessageDialog(null, "Slot kembali ke 40"); 
+            JOptionPane.showMessageDialog(null, "Slot Kembali ke 40", "Reset Slot", JOptionPane.INFORMATION_MESSAGE);
             
         } else 
         {

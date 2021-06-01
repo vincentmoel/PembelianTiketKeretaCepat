@@ -494,6 +494,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         cKrtCpt.resetData();
+        cKrtCpt.resetBorder();
         cKrtCpt.readData();
         tfStatus.setText("");
         cKrtCpt.resizeTable();
@@ -584,15 +585,16 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIdMouseClicked
 
     private void tfNikMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNikMouseClicked
-        cKrtCpt.resetBorder();
+        
+        getTfNik().setBorder(new JTextField().getBorder());
     }//GEN-LAST:event_tfNikMouseClicked
 
     private void tfNamaLengkapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNamaLengkapMouseClicked
-        cKrtCpt.resetBorder();
+        getTfNamaLengkap().setBorder(new JTextField().getBorder());
     }//GEN-LAST:event_tfNamaLengkapMouseClicked
 
     private void taAlamatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taAlamatMouseClicked
-        cKrtCpt.resetBorder();
+        getTaAlamat().setBorder(new JTextField().getBorder());
     }//GEN-LAST:event_taAlamatMouseClicked
 
     private void tfSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSearchKeyPressed

@@ -277,6 +277,7 @@ public class vUpdateSlot extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         cUpdtSlot.resetData();
+        cUpdtSlot.resetBorder();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -287,17 +288,17 @@ public class vUpdateSlot extends javax.swing.JFrame {
 
     private void tfSlotAfter10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSlotAfter10MouseClicked
         // TODO add your handling code here:
-        cUpdtSlot.resetBorder();
+        getTfSlotAfter10().setBorder(new JTextField().getBorder());
     }//GEN-LAST:event_tfSlotAfter10MouseClicked
 
     private void tfSlotAfter12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSlotAfter12MouseClicked
         // TODO add your handling code here:
-        cUpdtSlot.resetBorder();
+        getTfSlotAfter12().setBorder(new JTextField().getBorder());
     }//GEN-LAST:event_tfSlotAfter12MouseClicked
 
     private void tfSlotAfter14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSlotAfter14MouseClicked
         // TODO add your handling code here:
-        cUpdtSlot.resetBorder();
+        getTfSlotAfter14().setBorder(new JTextField().getBorder());
     }//GEN-LAST:event_tfSlotAfter14MouseClicked
 
 

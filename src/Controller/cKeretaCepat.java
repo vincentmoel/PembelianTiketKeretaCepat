@@ -182,8 +182,7 @@ public class cKeretaCepat {
     
     public void updateData()
     {
-        mPenumpang penumpang = new mPenumpang();
-        penumpang.setId(Integer.parseInt(framePenumpang.getTfId().getText().trim()));
+        mPenumpang penumpang = new mPenumpang();   
         penumpang.setNik(framePenumpang.getTfNik().getText().trim());
         penumpang.setNama(framePenumpang.getTfNamaLengkap().getText().trim());
         
@@ -215,6 +214,7 @@ public class cKeretaCepat {
         
         if(!isEmpty)
         {
+            penumpang.setId(Integer.parseInt(framePenumpang.getTfId().getText().trim()));
             success = iKeretaCepat.updateData(penumpang);
             if (success)
             {    
@@ -238,7 +238,7 @@ public class cKeretaCepat {
     
     public void deleteData()
     {
-        int id_penumpang = Integer.parseInt(framePenumpang.getTfId().getText());
+        String id_penumpang = framePenumpang.getTfId().getText();
         
         
         boolean success = false;
@@ -246,7 +246,7 @@ public class cKeretaCepat {
         
         if(!isEmpty)
         {
-            success = iKeretaCepat.deleteData(id_penumpang);
+            success = iKeretaCepat.deleteData(Integer.parseInt(id_penumpang));
             if (success)
             {    
                 framePenumpang.getTfStatus().setText("Delete Berhasil");

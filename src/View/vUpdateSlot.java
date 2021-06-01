@@ -264,9 +264,10 @@ public class vUpdateSlot extends javax.swing.JFrame {
             cUpdtSlot.updateSlot();
             cUpdtSlot.refresh(); 
             
-            if (!cUpdtSlot.isEmpty(false))
+            if (!cUpdtSlot.isEmpty(false) && cUpdtSlot.isEnough(false))
             {
-               new vFormPenumpang(1).setVisible(true); 
+                dispose();
+                new vFormPenumpang(1).setVisible(true); 
             }
             
         }

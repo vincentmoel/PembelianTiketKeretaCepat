@@ -1,7 +1,10 @@
 package Controller;
 
+import DAO.DAOKeretaCepat;
 import DAO.DAOUpdateSlot;
+import DAOInterface.IDAOKeretaCepat;
 import DAOInterface.IDAOUpdateSlot;
+import View.vFormPenumpang;
 import View.vUpdateSlot;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -12,11 +15,13 @@ import javax.swing.border.LineBorder;
 public class cUpdateSlot {
     vUpdateSlot frameUpdateSlot;
     IDAOUpdateSlot iUpdateSlot;
+    IDAOKeretaCepat iKeretaCepat;
     
     public cUpdateSlot(vUpdateSlot frameUpdateSlot)
     {
         this.frameUpdateSlot = frameUpdateSlot;
         iUpdateSlot = new DAOUpdateSlot();
+        iKeretaCepat = new DAOKeretaCepat();
     }
     
     public int getSlot(String jam)
@@ -28,34 +33,42 @@ public class cUpdateSlot {
     
     public void updateSlot()
     {
-        String tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText();
-        String tfAfter12 = frameUpdateSlot.getTfSlotAfter12().getText();
-        String tfAfter14 = frameUpdateSlot.getTfSlotAfter14().getText();
+        String tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText().trim();
+        String tfAfter12 = frameUpdateSlot.getTfSlotAfter12().getText().trim();
+        String tfAfter14 = frameUpdateSlot.getTfSlotAfter14().getText().trim();
         
         boolean success10 = false;
         boolean success12 = false;
         boolean success14 = false;
         boolean isEmpty = this.isEmpty(true);
+          
         
+        // jika field tidak ada yang kosong
         if(!isEmpty)
         {
-            success10 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter10), "10");
-            success12 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter12), "12");
-            success14 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter14), "14");
-            
-            
-            if (success10 && success12 && success14)
-            {    
-                
-                JOptionPane.showMessageDialog(null, "Slot berhasil diupdate!");
-
-            }else
+            // jika slot cukup
+            if(this.isEnough(true))
             {
-                JOptionPane.showMessageDialog(null, "Slot gagal diupdate!", "Update Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }else
-        {
-            
+                int updateSlot10 = Integer.parseInt(tfAfter10);
+                int updateSlot12 = Integer.parseInt(tfAfter12);
+                int updateSlot14 = Integer.parseInt(tfAfter14);
+
+
+                success10 = iUpdateSlot.updateSlotDatabase(updateSlot10, "10");
+                success12 = iUpdateSlot.updateSlotDatabase(updateSlot12, "12");
+                success14 = iUpdateSlot.updateSlotDatabase(updateSlot14, "14");
+
+
+                if (success10 && success12 && success14)
+                {    
+
+                    JOptionPane.showMessageDialog(null, "Slot berhasil diupdate!");
+
+                }else
+                {
+                    JOptionPane.showMessageDialog(null, "Slot gagal diupdate!", "Update Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }   
         }
     }
     
@@ -147,6 +160,72 @@ public class cUpdateSlot {
             return true;
         }
         return false; 
+    }
+    
+    public boolean isEnough(boolean show)
+    {
+        String tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText().trim();
+        String tfAfter12 = frameUpdateSlot.getTfSlotAfter12().getText().trim();
+        String tfAfter14 = frameUpdateSlot.getTfSlotAfter14().getText().trim();
+        
+        
+        // count data
+        int count10 = iKeretaCepat.getCountData("10");
+        int count12 = iKeretaCepat.getCountData("12");
+        int count14 = iKeretaCepat.getCountData("14"); 
+        
+        System.out.println(count10);
+        System.out.println(count12);
+        System.out.println(count14);
+        
+        // checking count data 
+        int updateSlot10 = Integer.parseInt(tfAfter10);
+        int updateSlot12 = Integer.parseInt(tfAfter12);
+        int updateSlot14 = Integer.parseInt(tfAfter14);
+        
+        System.out.println("update slot");
+        System.out.println(updateSlot10);
+        System.out.println(updateSlot12);
+        System.out.println(updateSlot14);
+
+        boolean isEnough10 = true;
+        boolean isEnough12 = true;
+        boolean isEnough14 = true;
+        
+        StringBuilder errorText = new StringBuilder();
+
+        if(updateSlot10 - count10 < 0)
+        {
+            isEnough10 = false;
+            errorText.append("Slot jam 10, ");
+            frameUpdateSlot.getTfSlotAfter10().setBorder(new LineBorder(Color.red, 2));
+        }
+
+        if(updateSlot12 - count12 < 0)
+        {
+            isEnough12 = false;
+            errorText.append("Slot jam 12, ");
+            frameUpdateSlot.getTfSlotAfter12().setBorder(new LineBorder(Color.red, 2));
+        }
+
+        if(updateSlot14 - count14 < 0)
+        {
+            isEnough14 = false;
+            errorText.append("Slot jam 14, ");
+            frameUpdateSlot.getTfSlotAfter14().setBorder(new LineBorder(Color.red, 2));
+        }
+
+        if(!isEnough10 || !isEnough12 || !isEnough14)
+        {
+            errorText.append("\ntidak cukup!");
+            if(show)
+            {
+                JOptionPane.showMessageDialog(null, errorText, "Slot Kurang", JOptionPane.ERROR_MESSAGE);
+            }
+            return false;
+        }
+        return true;
+  
     }
     
     

@@ -8,8 +8,12 @@ import View.vAdminLogin;
 import View.vFormPenumpang;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 
 public class cKeretaCepat {
@@ -162,6 +166,7 @@ public class cKeretaCepat {
                 framePenumpang.getTfStatus().setText("Input Berhasil");
                 framePenumpang.getTfStatus().setBackground(Color.green);
                 framePenumpang.getTfStatus().setForeground(Color.black);
+                this.resetData();
 
             }else{
                 framePenumpang.getTfStatus().setText("Input Gagal");
@@ -226,6 +231,7 @@ public class cKeretaCepat {
             framePenumpang.getTfStatus().setText("Update Gagal");
             framePenumpang.getTfStatus().setBackground(Color.red);
             framePenumpang.getTfStatus().setForeground(Color.white);
+            
         }
         
     }
@@ -343,25 +349,57 @@ public class cKeretaCepat {
     
     public boolean isEmpty()
     {
-        String tfNik = framePenumpang.getTfNik().getText();
-        String tfNamaLengkap = framePenumpang.getTfNamaLengkap().getText();
-        String taAlamat = framePenumpang.getTaAlamat().getText();
+        String tfNik = framePenumpang.getTfNik().getText().trim();
+        String tfNamaLengkap = framePenumpang.getTfNamaLengkap().getText().trim();
+        String taAlamat = framePenumpang.getTaAlamat().getText().trim();
+        
+        // RB Buttongroup JK
+        ButtonGroup buttonGroupJK = new ButtonGroup();
+        buttonGroupJK.add(framePenumpang.getRbLakiLaki());
+        buttonGroupJK.add(framePenumpang.getRbPerempuan());
+        ButtonModel rbClicked = buttonGroupJK.getSelection();
+        
+        // RB Buttongroup Jam
+        ButtonGroup buttonGroupJam = new ButtonGroup();
+        buttonGroupJam.add(framePenumpang.getRbJam10());
+        buttonGroupJam.add(framePenumpang.getRbJam12());
+        buttonGroupJam.add(framePenumpang.getRbJam14());
+        ButtonModel rbJamClicked = buttonGroupJam.getSelection();
+
+        
+        StringBuilder errorText = new StringBuilder();
         
         if(tfNik.equals("")){
-            System.out.println("NIK KOSONG");
+            errorText.append("NIK, ");
+            framePenumpang.getTfNik().setBorder(new LineBorder(Color.red, 2));
         }
         
         if(tfNamaLengkap.equals(""))
         {
-            System.out.println("NAMA KOSONG");
+            errorText.append("Nama Lengkap, ");
+            framePenumpang.getTfNamaLengkap().setBorder(new LineBorder(Color.red, 2));
         }
         
+        if(rbClicked == null)
+        {
+            errorText.append("Jenis Kelamin, ");
+        }
+              
         if(taAlamat.equals("")){
-            System.out.println("ALAMAT KOSONG");
+            errorText.append("Alamat, ");
+            framePenumpang.getTaAlamat().setBorder(new LineBorder(Color.red, 2));
         }
         
-        if(tfNik.equals("") || tfNamaLengkap.equals("") || taAlamat.equals("")){
-            System.out.println("MASOK");
+        if(rbJamClicked == null)
+        {
+            errorText.append("Jam Berangkat ");
+        }
+        
+        if(tfNik.equals("") || tfNamaLengkap.equals("") || taAlamat.equals("") || rbClicked == null || rbJamClicked == null)
+        {
+            errorText.append("\ntidak boleh kosong!");
+            JOptionPane.showMessageDialog(null, errorText, "Field Kosong", JOptionPane.ERROR_MESSAGE);
+            
             return true;
         }
         return false;

@@ -13,6 +13,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 public class vFormPenumpang extends javax.swing.JFrame {
 
@@ -97,9 +98,25 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblJenisKelamin.setText("Jenis Kelamin");
 
         tfId.setEnabled(false);
+        tfId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfIdMouseClicked(evt);
+            }
+        });
         tfId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIdActionPerformed(evt);
+            }
+        });
+
+        tfNik.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfNikMouseClicked(evt);
+            }
+        });
+        tfNik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNikActionPerformed(evt);
             }
         });
 
@@ -132,10 +149,20 @@ public class vFormPenumpang extends javax.swing.JFrame {
         taAlamat.setColumns(20);
         taAlamat.setLineWrap(true);
         taAlamat.setRows(5);
+        taAlamat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                taAlamatMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(taAlamat);
 
         lblNik.setText("NIK");
 
+        tfNamaLengkap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfNamaLengkapMouseClicked(evt);
+            }
+        });
         tfNamaLengkap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNamaLengkapActionPerformed(evt);
@@ -431,7 +458,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfIdActionPerformed
 
     private void rbJam10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam10ActionPerformed
@@ -472,7 +499,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         cKrtCpt.insertData();
         cKrtCpt.readData();
-        cKrtCpt.resetData();
+//        cKrtCpt.resetData();
         cKrtCpt.updateSlot();
         cKrtCpt.resizeTable();
 
@@ -501,7 +528,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
         
         cKrtCpt.updateData();
         cKrtCpt.readData();
-        cKrtCpt.resetData();
+//        cKrtCpt.resetData();
         cKrtCpt.updateSlot();
         cKrtCpt.resizeTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -528,6 +555,26 @@ public class vFormPenumpang extends javax.swing.JFrame {
         btnLogout.setForeground(Color.WHITE);
 
     }//GEN-LAST:event_btnLogoutMouseExited
+
+    private void tfNikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNikActionPerformed
+        
+    }//GEN-LAST:event_tfNikActionPerformed
+
+    private void tfIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfIdMouseClicked
+       
+    }//GEN-LAST:event_tfIdMouseClicked
+
+    private void tfNikMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNikMouseClicked
+        this.getTfNik().setBorder(new JTextField().getBorder());
+    }//GEN-LAST:event_tfNikMouseClicked
+
+    private void tfNamaLengkapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNamaLengkapMouseClicked
+        this.getTfNamaLengkap().setBorder(new JTextField().getBorder());
+    }//GEN-LAST:event_tfNamaLengkapMouseClicked
+
+    private void taAlamatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taAlamatMouseClicked
+        this.getTaAlamat().setBorder(new JTextField().getBorder());
+    }//GEN-LAST:event_taAlamatMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

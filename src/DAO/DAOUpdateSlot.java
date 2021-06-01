@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
     //SQL
     String queryGetSlot = "SELECT * FROM tbl_jadwal WHERE jam_berangkat = ?;";
     String queryUpdate = "UPDATE tbl_jadwal SET slot_berangkat = ? WHERE jam_berangkat = ?;";
+    String queryRefresh = "UPDATE tbl_jadwal SET slot_berangkat = 40;";
+    String queryCoba = "SELECT * FROM tbl_jadwal;";
 
     @Override
     public boolean updateSlotDatabase(int slot, String jam) 
@@ -83,6 +86,25 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
             System.out.println("Error "+e);
         }
         return slotDB;
+    }
+
+    @Override
+    public boolean refreshSlotDatabase() 
+    {
+        boolean success = true;
+        
+        try 
+        {
+            Statement st = con.createStatement();
+            st.execute(queryRefresh); 
+            
+        } 
+        catch(SQLException e)
+        {
+            success = false;            
+        }
+        
+        return success;
     }
     
 }

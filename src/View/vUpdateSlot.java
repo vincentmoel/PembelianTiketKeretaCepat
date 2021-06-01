@@ -74,6 +74,11 @@ public class vUpdateSlot extends javax.swing.JFrame {
             }
         });
 
+        tfSlotAfter10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfSlotAfter10MouseClicked(evt);
+            }
+        });
         tfSlotAfter10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSlotAfter10ActionPerformed(evt);
@@ -93,6 +98,11 @@ public class vUpdateSlot extends javax.swing.JFrame {
             }
         });
 
+        tfSlotAfter12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfSlotAfter12MouseClicked(evt);
+            }
+        });
         tfSlotAfter12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSlotAfter12ActionPerformed(evt);
@@ -108,6 +118,11 @@ public class vUpdateSlot extends javax.swing.JFrame {
             }
         });
 
+        tfSlotAfter14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfSlotAfter14MouseClicked(evt);
+            }
+        });
         tfSlotAfter14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSlotAfter14ActionPerformed(evt);
@@ -261,8 +276,7 @@ public class vUpdateSlot extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-        dispose();
-        new vFormPenumpang(1).setVisible(true);
+        cUpdtSlot.resetData();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -270,6 +284,21 @@ public class vUpdateSlot extends javax.swing.JFrame {
         dispose();
         new vFormPenumpang(1).setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void tfSlotAfter10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSlotAfter10MouseClicked
+        // TODO add your handling code here:
+        cUpdtSlot.resetBorder();
+    }//GEN-LAST:event_tfSlotAfter10MouseClicked
+
+    private void tfSlotAfter12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSlotAfter12MouseClicked
+        // TODO add your handling code here:
+        cUpdtSlot.resetBorder();
+    }//GEN-LAST:event_tfSlotAfter12MouseClicked
+
+    private void tfSlotAfter14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfSlotAfter14MouseClicked
+        // TODO add your handling code here:
+        cUpdtSlot.resetBorder();
+    }//GEN-LAST:event_tfSlotAfter14MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

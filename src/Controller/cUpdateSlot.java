@@ -6,6 +6,7 @@ import View.vUpdateSlot;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 
 public class cUpdateSlot {
@@ -32,7 +33,8 @@ public class cUpdateSlot {
         boolean success10 = false;
         boolean success12 = false;
         boolean success14 = false;
-        boolean isEmpty = false;
+        boolean isEmpty;
+        isEmpty = isEmpty();
         
         if(!isEmpty)
         {
@@ -93,6 +95,65 @@ public class cUpdateSlot {
         frameUpdateSlot.getTfSlotBefore10().setHorizontalAlignment(JTextField.CENTER);
         frameUpdateSlot.getTfSlotBefore12().setHorizontalAlignment(JTextField.CENTER);
         frameUpdateSlot.getTfSlotBefore14().setHorizontalAlignment(JTextField.CENTER);
+    }
+    
+    public void resetData()
+    {
+        boolean success = iUpdateSlot.refreshSlotDatabase();
+        
+        if(success)
+        {
+            this.startApp();
+            JOptionPane.showMessageDialog(null, "Slot kembali ke 40"); 
+            
+        } else 
+        {
+            JOptionPane.showMessageDialog(null, "GAGAL REFRESH SLOT");
+        }
+    }
+    
+    public boolean isEmpty()
+    {
+        int tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText().trim().length();
+        int tfAfter12 = frameUpdateSlot.getTfSlotAfter12().getText().trim().length();
+        int tfAfter14 = frameUpdateSlot.getTfSlotAfter14().getText().trim().length();
+        
+        StringBuilder errorText = new StringBuilder();
+        errorText.append("Update slot ");
+        
+        if(tfAfter10 == 0)
+        {
+            errorText.append("jam 10, ");
+            frameUpdateSlot.getTfSlotAfter10().setBorder(new LineBorder(Color.red, 2));
+        }
+        
+        if(tfAfter12 == 0)
+        {
+            errorText.append("jam 12, ");
+            frameUpdateSlot.getTfSlotAfter12().setBorder(new LineBorder(Color.red, 2));
+        }
+        
+        if(tfAfter14 == 0)
+        {
+            errorText.append("jam 14, ");
+            frameUpdateSlot.getTfSlotAfter14().setBorder(new LineBorder(Color.red, 2));
+        }
+        
+        if(tfAfter10 == 0 ||tfAfter12 == 0 ||tfAfter14 == 0)
+        {
+            errorText.append("\nTidak boleh kosong!");
+            JOptionPane.showMessageDialog(null, errorText, "Field Kosong", JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        return false;
+        
+    }
+    
+    public void resetBorder()
+    {
+        frameUpdateSlot.getTfSlotAfter10().setBorder(new JTextField().getBorder());
+        frameUpdateSlot.getTfSlotAfter12().setBorder(new JTextField().getBorder());
+        frameUpdateSlot.getTfSlotAfter14().setBorder(new JTextField().getBorder());
     }
 
     

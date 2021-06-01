@@ -164,6 +164,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tfSlotAfter10">
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfSlotAfter10MouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSlotAfter10ActionPerformed"/>
       </Events>
     </Component>
@@ -192,6 +193,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tfSlotAfter12">
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfSlotAfter12MouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSlotAfter12ActionPerformed"/>
       </Events>
     </Component>
@@ -210,6 +212,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tfSlotAfter14">
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tfSlotAfter14MouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSlotAfter14ActionPerformed"/>
       </Events>
     </Component>

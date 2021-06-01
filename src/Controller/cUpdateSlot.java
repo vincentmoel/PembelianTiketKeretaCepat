@@ -35,28 +35,26 @@ public class cUpdateSlot {
         boolean success10 = false;
         boolean success12 = false;
         boolean success14 = false;
-        boolean isEmpty = this.isEmpty();
+        boolean isEmpty = this.isEmpty(true);
         
         if(!isEmpty)
         {
             success10 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter10), "10");
             success12 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter12), "12");
             success14 = iUpdateSlot.updateSlotDatabase(Integer.parseInt(tfAfter14), "14");
+            
+            
             if (success10 && success12 && success14)
             {    
-//                framePenumpang.getTfStatus().setText("Update Berhasil");
-//                framePenumpang.getTfStatus().setBackground(Color.green);
-//                framePenumpang.getTfStatus().setForeground(Color.black);
                 
-                JOptionPane.showMessageDialog(null, "BERHASIL UPDATE SLOT");
+                JOptionPane.showMessageDialog(null, "Slot berhasil diupdate!");
 
-            }else{
-                JOptionPane.showMessageDialog(null, "GAGAL UPDATE SLOT");
+            }else
+            {
+                JOptionPane.showMessageDialog(null, "Slot gagal diupdate!", "Update Error", JOptionPane.ERROR_MESSAGE);
             }
-        }else{
-//            framePenumpang.getTfStatus().setText("Update Gagal");
-//            framePenumpang.getTfStatus().setBackground(Color.red);
-//            framePenumpang.getTfStatus().setForeground(Color.white);
+        }else
+        {
             
         }
     }
@@ -111,7 +109,7 @@ public class cUpdateSlot {
         }
     }
     
-    public boolean isEmpty()
+    public boolean isEmpty(boolean show)
     {
         int tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText().trim().length();
         int tfAfter12 = frameUpdateSlot.getTfSlotAfter12().getText().trim().length();
@@ -141,12 +139,17 @@ public class cUpdateSlot {
         if(tfAfter10 == 0 ||tfAfter12 == 0 ||tfAfter14 == 0)
         {
             errorText.append("\nTidak boleh kosong!");
-            JOptionPane.showMessageDialog(null, errorText, "Field Kosong", JOptionPane.ERROR_MESSAGE);
+            if(show)
+            {
+                JOptionPane.showMessageDialog(null, errorText, "Field Kosong", JOptionPane.ERROR_MESSAGE);
+            }
+            
             return true;
         }
-        return false;
-        
+        return false; 
     }
+    
+    
     
     public void resetBorder()
     {

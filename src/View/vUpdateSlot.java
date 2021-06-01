@@ -1,5 +1,7 @@
 package View;
 
+import javax.swing.JTextField;
+
 
 public class vUpdateSlot extends javax.swing.JFrame {
 
@@ -283,4 +285,38 @@ public class vUpdateSlot extends javax.swing.JFrame {
     private javax.swing.JTextField tfSlotBefore12;
     private javax.swing.JTextField tfSlotBefore14;
     // End of variables declaration//GEN-END:variables
+    
+    
+    public JTextField getTfSlotBefore10()
+    {
+        return tfSlotBefore10;
+    }
+    
+    public JTextField getTfSlotBefore12()
+    {
+        return tfSlotBefore12;
+    }
+    
+    public JTextField getTfSlotBefore14()
+    {
+        return tfSlotBefore14;
+    }
+    
+    public JTextField getTfSlotAfter10()
+    {
+        return tfSlotAfter10;
+    }
+    
+    public JTextField getTfSlotAfter12()
+    {
+        return tfSlotAfter12;
+    }
+    
+    public JTextField getTfSlotAfter14()
+    {
+        return tfSlotAfter14;
+    }
+
+
+
 }

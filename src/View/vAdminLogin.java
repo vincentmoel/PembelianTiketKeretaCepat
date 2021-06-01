@@ -125,7 +125,7 @@ public class vAdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
-            cAdmin.checkLogin();
+            tfPassword.requestFocus();
         }
     }//GEN-LAST:event_tfUsernameKeyPressed
 

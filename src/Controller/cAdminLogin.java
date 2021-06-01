@@ -42,6 +42,7 @@ public class cAdminLogin {
         {
            
             JOptionPane.showMessageDialog(null, "Username atau Password Salah","Login Gagal",JOptionPane.ERROR_MESSAGE);
+            frameAdminLogin.getTfUsername().requestFocus();
             
         }
      

@@ -15,7 +15,7 @@ public interface IDAOKeretaCepat {
     public boolean updateData(mPenumpang penumpang);
     
     // Delete Data
-    public void deleteData(mPenumpang penumpang);
+    public boolean deleteData(int id_penumpang);
     
     // Count Data
     public int getCountData(String jam);

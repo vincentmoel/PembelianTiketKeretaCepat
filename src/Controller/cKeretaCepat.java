@@ -238,7 +238,32 @@ public class cKeretaCepat {
     
     public void deleteData()
     {
+        int id_penumpang = Integer.parseInt(framePenumpang.getTfId().getText());
         
+        
+        boolean success = false;
+        boolean isEmpty = isEmpty();
+        
+        if(!isEmpty)
+        {
+            success = iKeretaCepat.deleteData(id_penumpang);
+            if (success)
+            {    
+                framePenumpang.getTfStatus().setText("Delete Berhasil");
+                framePenumpang.getTfStatus().setBackground(Color.green);
+                framePenumpang.getTfStatus().setForeground(Color.black);
+
+            }else{
+                framePenumpang.getTfStatus().setText("Delete Gagal");
+                framePenumpang.getTfStatus().setBackground(Color.red);
+                framePenumpang.getTfStatus().setForeground(Color.white);
+            }
+        }else{
+            framePenumpang.getTfStatus().setText("Delete Gagal");
+            framePenumpang.getTfStatus().setBackground(Color.red);
+            framePenumpang.getTfStatus().setForeground(Color.white);
+            
+        }
     }
     
     
@@ -255,8 +280,8 @@ public class cKeretaCepat {
         framePenumpang.getCbSearch().setSelectedIndex(0);
         framePenumpang.getTfSearch().setText("");
         framePenumpang.getBtnInsert().setEnabled(true);
-        framePenumpang.getBtnUpdate().setEnabled(false);
-        framePenumpang.getBtnDelete().setEnabled(false);
+//        framePenumpang.getBtnUpdate().setEnabled(false);
+//        framePenumpang.getBtnDelete().setEnabled(false);
 
     }
     
@@ -403,6 +428,13 @@ public class cKeretaCepat {
             return true;
         }
         return false;
+    }
+    
+    public void resetBorder()
+    {
+        framePenumpang.getTfNik().setBorder(new JTextField().getBorder());
+        framePenumpang.getTfNamaLengkap().setBorder(new JTextField().getBorder());
+        framePenumpang.getTaAlamat().setBorder(new JTextField().getBorder());
     }
     
 

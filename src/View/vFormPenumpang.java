@@ -9,6 +9,7 @@ import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -508,6 +509,7 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void tblPenumpangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPenumpangMouseClicked
         int row = tblPenumpang.getSelectedRow();
         cKrtCpt.isiField(row);
+        cKrtCpt.resetBorder();
     }//GEN-LAST:event_tblPenumpangMouseClicked
 
     private void tfStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfStatusActionPerformed
@@ -516,8 +518,18 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        cKrtCpt.resizeTable();
         
+        int option = JOptionPane.showConfirmDialog(null, "Apakah yakin ingin menghapus data?", "Delete", JOptionPane.YES_NO_OPTION);
+        
+        if(option == 0)
+        {
+            cKrtCpt.deleteData();
+            cKrtCpt.readData();
+            cKrtCpt.resetData();
+            cKrtCpt.updateSlot();
+            cKrtCpt.resizeTable();
+        }
+            
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void cbSearchJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSearchJamActionPerformed
@@ -565,15 +577,15 @@ public class vFormPenumpang extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIdMouseClicked
 
     private void tfNikMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNikMouseClicked
-        this.getTfNik().setBorder(new JTextField().getBorder());
+        cKrtCpt.resetBorder();
     }//GEN-LAST:event_tfNikMouseClicked
 
     private void tfNamaLengkapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNamaLengkapMouseClicked
-        this.getTfNamaLengkap().setBorder(new JTextField().getBorder());
+        cKrtCpt.resetBorder();
     }//GEN-LAST:event_tfNamaLengkapMouseClicked
 
     private void taAlamatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taAlamatMouseClicked
-        this.getTaAlamat().setBorder(new JTextField().getBorder());
+        cKrtCpt.resetBorder();
     }//GEN-LAST:event_taAlamatMouseClicked
 
 

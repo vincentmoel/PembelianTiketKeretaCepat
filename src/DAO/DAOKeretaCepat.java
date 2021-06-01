@@ -25,6 +25,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     String queryRead = "SELECT * FROM tbl_penumpang;";
     String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
     String queryUpdate = "UPDATE tbl_penumpang set nik=?, nama=?, jk=?, alamat=?, jamberangkat=? WHERE id_penumpang=?;";
+    String queryDelete = "DELETE FROM tbl_penumpang WHERE id_penumpang =?;";
     String queryCount = "SELECT COUNT(jamberangkat) AS jml FROM tbl_penumpang WHERE jamberangkat = ?;";
     String querySlot = "SELECT slot_berangkat FROM tbl_jadwal WHERE jam_berangkat = ?;";
     String querySearch;
@@ -130,9 +131,35 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
     }
 
     @Override
-    public void deleteData(mPenumpang penumpang) 
+    public boolean deleteData(int id_penumpang) 
     {
+        boolean success = true;
+        PreparedStatement statement = null;
         
+        try 
+        {
+            statement = con.prepareStatement(queryDelete);
+            statement.setInt(1, id_penumpang);
+            statement.execute();
+            
+        } catch (Exception e) 
+        {
+            System.out.println("DELETE GAGAL");
+            success = false;
+        }
+        finally
+        {
+            try 
+            {
+                statement.close();
+            } catch (SQLException ex) 
+            {
+                System.out.println("Gagal hapus");
+                success = false;            
+
+            }
+        }
+        return success;
     }
 
     @Override

@@ -29,6 +29,4 @@ public class mUpdateSlot {
     public void setSlot_berangkat(int slot_berangkat) {
         this.slot_berangkat = slot_berangkat;
     }
-    
-    
 }

@@ -39,8 +39,4 @@ public class mAdminLogin {
     public void setRole(int role) {
         this.role = role;
     }
-    
-    
-    
-    
 }

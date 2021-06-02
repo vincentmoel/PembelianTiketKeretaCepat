@@ -34,7 +34,6 @@ public class cKeretaCepat {
         // Membuat full screen
         framePenumpang.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
-        
         // Set Text Center di Text Field Status
         framePenumpang.getTfStatus().setHorizontalAlignment(JTextField.CENTER);
         
@@ -42,9 +41,7 @@ public class cKeretaCepat {
         framePenumpang.getLblStatusSlot10().setText("");
         framePenumpang.getLblStatusSlot12().setText("");
         framePenumpang.getLblStatusSlot14().setText("");
-        
 
-        
         // Menjalankan Method utama
         readData();
         updateSlot();
@@ -52,8 +49,6 @@ public class cKeretaCepat {
         roleSetting(); 
         resetData();
 
-        // Menghilangkan Text Field Status
-//        framePenumpang.getTfStatus().setVisible(false);
     }
     
     public void resizeTable()
@@ -65,7 +60,6 @@ public class cKeretaCepat {
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(4).setPreferredWidth(150);
         framePenumpang.getTblPenumpang().getColumnModel().getColumn(5).setPreferredWidth(35);
         framePenumpang.getTblPenumpang().setRowHeight(40);
-
     }
     
     public void roleSetting()
@@ -80,12 +74,12 @@ public class cKeretaCepat {
     
     public void updateSlot()
     {
-        // Update Slot Kursi
+        // Mendapatkan Jumlah Slot Kursi yang Tersedia
         int slot10 = iKeretaCepat.getSlotData("10");
         int slot12 = iKeretaCepat.getSlotData("12");
         int slot14 = iKeretaCepat.getSlotData("14");
 
-//        int count10 = 40;
+        // Mendapatkan Jumlah Penumpang Terdaftar
         int count10 = iKeretaCepat.getCountData("10");
         int count12 = iKeretaCepat.getCountData("12");
         int count14 = iKeretaCepat.getCountData("14");
@@ -122,7 +116,7 @@ public class cKeretaCepat {
     }
 
     
-    public void readData()//Menampilkan Data di Table
+    public void readData() //Menampilkan Data di Table
     {
         listPenumpang = iKeretaCepat.readData();
         mTabelModelPenumpang tabelPenumpang = new mTabelModelPenumpang(listPenumpang);
@@ -189,7 +183,7 @@ public class cKeretaCepat {
         penumpang.setNik(framePenumpang.getTfNik().getText().trim());
         penumpang.setNama(framePenumpang.getTfNamaLengkap().getText().trim());
         
-        // set Radiobutton JK
+        // Set Radiobutton JK
         if(framePenumpang.getRbLakiLaki().isSelected())
         {
             penumpang.setJk("L");
@@ -200,7 +194,7 @@ public class cKeretaCepat {
         
         penumpang.setAlamat(framePenumpang.getTaAlamat().getText());
         
-        // set jam berangkat
+        // Set jam berangkat
         if(framePenumpang.getRbJam10().isSelected())
         {         
             penumpang.setJamberangkat("10");
@@ -235,9 +229,7 @@ public class cKeretaCepat {
             framePenumpang.getTfStatus().setText("Update Gagal");
             framePenumpang.getTfStatus().setBackground(Color.red);
             framePenumpang.getTfStatus().setForeground(Color.white);
-            
         }
-        
     }
     
     public void deleteData()
@@ -272,7 +264,6 @@ public class cKeretaCepat {
         framePenumpang.getBtnInsert().setEnabled(true);
         framePenumpang.getBtnUpdate().setEnabled(false);
         framePenumpang.getBtnDelete().setEnabled(false);
-
     }
     
     public void searchData()
@@ -286,7 +277,7 @@ public class cKeretaCepat {
         switch(jamSearch)
         {
             case 0 :
-                jam = "_";
+                jam = "_"; // Untuk membuat LIKE "%_%"
                 break;
             case 1 :
                 jam = "10";
@@ -303,7 +294,7 @@ public class cKeretaCepat {
         {
             case 0 :
                 atribut = "id_penumpang";
-                isiAtributSearch = "_";
+                isiAtributSearch = "_"; // Untuk membuat LIKE "%_%"
                 break;
             case 1 :
                 atribut = "id_penumpang";
@@ -319,13 +310,11 @@ public class cKeretaCepat {
         listPenumpang = iKeretaCepat.searchData(jam, atribut , isiAtributSearch);
         mTabelModelPenumpang tabelPenumpang = new mTabelModelPenumpang(listPenumpang);
         framePenumpang.getTblPenumpang().setModel(tabelPenumpang);
-        
-        
     }
     
     public void isiField(int row)
     {
-        if(roleDatabase == 1)
+        if(roleDatabase == 1) // Jika Role 1 (ADMIN)
         {
             framePenumpang.getBtnUpdate().setEnabled(true);
             framePenumpang.getBtnDelete().setEnabled(true);
@@ -344,8 +333,7 @@ public class cKeretaCepat {
         {
             framePenumpang.getRbPerempuan().setSelected(true);
         }
-        
-        
+
         framePenumpang.getTaAlamat().setText(listPenumpang.get(row).getAlamat());
         
         // Selected radiobutton jam berangkat
@@ -359,7 +347,6 @@ public class cKeretaCepat {
         {
             framePenumpang.getRbJam14().setSelected(true);
         }
-        
     }
     
     public boolean isEmpty()
@@ -372,8 +359,6 @@ public class cKeretaCepat {
         
         ButtonModel rbClickedJK = framePenumpang.getBtnGroupJenisKelamin().getSelection();
         ButtonModel rbClickedJam = framePenumpang.getBtnGroupJamBerangkat().getSelection();
-        
-        
         
         if(tfNik.equals("")){
             errorText.append("NIK, ");

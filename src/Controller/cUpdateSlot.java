@@ -28,8 +28,7 @@ public class cUpdateSlot {
     {
         return iUpdateSlot.getSlotDatabase(jam);
     }
-    
-    
+        
     public void updateSlot()
     {
         String tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText().trim();
@@ -39,8 +38,7 @@ public class cUpdateSlot {
         boolean success10 = false;
         boolean success12 = false;
         boolean success14 = false;
-        
-        
+
         try 
         {
             int updateSlot10;
@@ -74,10 +72,10 @@ public class cUpdateSlot {
             boolean isEmpty = this.isEmpty(true);
 
 
-            // jika field tidak ada yang kosong
+            // Jika field tidak ada yang kosong
             if(!isEmpty)
             {
-                // jika slot cukup
+                // Jika slot cukup
                 if(this.isEnough(true))
                 {
                     updateSlot10 = Integer.parseInt(tfAfter10);
@@ -100,16 +98,11 @@ public class cUpdateSlot {
                         JOptionPane.showMessageDialog(null, "Slot gagal diupdate!", "Update Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-            }
-            
-            
+            }           
         } catch (Exception e) 
         {
             JOptionPane.showMessageDialog(null, "Input tidak valid", "Update Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        
-        
 
     }
     
@@ -135,32 +128,6 @@ public class cUpdateSlot {
         frameUpdateSlot.getTfSlotBefore10().setEditable(false);
         frameUpdateSlot.getTfSlotBefore12().setEditable(false);
         frameUpdateSlot.getTfSlotBefore14().setEditable(false);
-    }
-    
-    public void refresh()
-    {
-        frameUpdateSlot.getTfSlotBefore10().setText(String.valueOf(this.getSlot("10")));
-        frameUpdateSlot.getTfSlotBefore12().setText(String.valueOf(this.getSlot("12")));
-        frameUpdateSlot.getTfSlotBefore14().setText(String.valueOf(this.getSlot("14")));
-        
-        frameUpdateSlot.getTfSlotBefore10().setHorizontalAlignment(JTextField.CENTER);
-        frameUpdateSlot.getTfSlotBefore12().setHorizontalAlignment(JTextField.CENTER);
-        frameUpdateSlot.getTfSlotBefore14().setHorizontalAlignment(JTextField.CENTER);
-    }
-    
-    public void resetData()
-    {
-        boolean success = iUpdateSlot.refreshSlotDatabase();
-        
-        if(success)
-        {
-            this.startApp();
-            JOptionPane.showMessageDialog(null, "Slot Kembali ke 40", "Reset Slot", JOptionPane.INFORMATION_MESSAGE);
-            
-        } else 
-        {
-            JOptionPane.showMessageDialog(null, "GAGAL REFRESH SLOT");
-        }
     }
     
     public boolean isEmpty(boolean show)
@@ -258,17 +225,12 @@ public class cUpdateSlot {
             return false;
         }
         return true;
-  
     }
-    
-    
-    
+
     public void resetBorder()
     {
         frameUpdateSlot.getTfSlotAfter10().setBorder(new JTextField().getBorder());
         frameUpdateSlot.getTfSlotAfter12().setBorder(new JTextField().getBorder());
         frameUpdateSlot.getTfSlotAfter14().setBorder(new JTextField().getBorder());
     }
-
-    
 }

@@ -25,7 +25,7 @@ public class cAdminLogin {
     {
         String usernameInput = frameAdminLogin.getTfUsername().getText();
         String passwordInput = new String(frameAdminLogin.getTfPassword().getPassword());
-        listAdminLogin = iAdminLogin.checkLogin(usernameInput, passwordInput);
+        listAdminLogin = iAdminLogin.checkLogin(usernameInput, passwordInput); // username, pass, role
         
         if(listAdminLogin.size()>0)
         {

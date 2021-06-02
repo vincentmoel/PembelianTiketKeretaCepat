@@ -508,7 +508,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         cKrtCpt.insertData();
         cKrtCpt.readData();
-//        cKrtCpt.resetData();
         cKrtCpt.updateSlot();
         cKrtCpt.resizeTable();
 
@@ -548,7 +547,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         
         cKrtCpt.updateData();
         cKrtCpt.readData();
-//        cKrtCpt.resetData();
         cKrtCpt.updateSlot();
         cKrtCpt.resizeTable();
     }//GEN-LAST:event_btnUpdateActionPerformed

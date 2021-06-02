@@ -108,9 +108,6 @@ public class vAdminLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:          
         cAdmin.checkLogin();
-//        String username = this.tfUsername.getText();
-//        String password = new String(this.getTfPassword().getPassword());
-//        new vFormPenumpang(username, password).setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void tfPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPasswordKeyPressed

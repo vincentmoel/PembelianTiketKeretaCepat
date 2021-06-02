@@ -262,17 +262,15 @@ public class vUpdateSlot extends javax.swing.JFrame {
         if(option == 0)
         {
             cUpdtSlot.updateSlot();
-            cUpdtSlot.refresh(); 
             try 
             {
                 // jika slot data sudah cocok, pindah ke form penumpang
-
                 if (!cUpdtSlot.isEmpty(false) && cUpdtSlot.isEnough(false))
                 {
                     dispose();
+                    
                     new vFormPenumpang(1).setVisible(true); 
                 }
-                
             } catch (Exception e) 
             {
                 System.out.println("ERROR INTEGER");

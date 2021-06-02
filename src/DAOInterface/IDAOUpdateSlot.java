@@ -5,9 +5,10 @@ import java.util.List;
 
 
 public interface IDAOUpdateSlot {
+    
+    // Melakukan Update
     public boolean updateSlotDatabase(int slot, String jam);
     
-    public boolean refreshSlotDatabase();
-    
+    // Mendapatkan Slot Terkini
     public int getSlotDatabase(String jam);
 }

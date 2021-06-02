@@ -56,6 +56,4 @@ public class mPenumpang {
     public void setJamberangkat(String jamberangkat) {
         this.jamberangkat = jamberangkat;
     }
-    
-    
 }

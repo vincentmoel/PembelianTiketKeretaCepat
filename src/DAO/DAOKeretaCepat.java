@@ -14,14 +14,13 @@ import java.util.List;
 
 public class DAOKeretaCepat implements IDAOKeretaCepat
 {
-//    String a = null;
     Connection con;
     public DAOKeretaCepat()
     {
         con = KoneksiDB.getConnection();
     }
     
-//    SQL
+    // SQL Query
     String queryRead = "SELECT * FROM tbl_penumpang;";
     String queryInsert = "INSERT INTO tbl_penumpang(nik,nama,jk,alamat,jamberangkat) values(?,?,?,?,?);";
     String queryUpdate = "UPDATE tbl_penumpang set nik=?, nama=?, jk=?, alamat=?, jamberangkat=? WHERE id_penumpang=?;";
@@ -87,7 +86,6 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
             {
                 System.out.println("Gagal Input");
                 success = false;            
-
             }
         }
         return success;
@@ -237,8 +235,6 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         }
         catch(SQLException e)
         {
-            System.out.println(querySearch);
-
             System.out.println("Error "+e);
         }
         return listPenumpang;

@@ -21,10 +21,9 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
         con = KoneksiDB.getConnection();
     }
     
-    //SQL
+    // SQL Query
     String queryGetSlot = "SELECT * FROM tbl_jadwal WHERE jam_berangkat = ?;";
     String queryUpdate = "UPDATE tbl_jadwal SET slot_berangkat = ? WHERE jam_berangkat = ?;";
-    String queryRefresh = "UPDATE tbl_jadwal SET slot_berangkat = 40;";
     String queryCoba = "SELECT * FROM tbl_jadwal;";
 
     @Override
@@ -54,7 +53,6 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
             {
                 System.out.println("Gagal Update");
                 success = false;            
-
             }
         }
         return success;
@@ -66,7 +64,6 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
         int slotDB = 0;
         try
         {
-//            listSlotDB = new ArrayList<mUpdateSlot>();
             PreparedStatement st = con.prepareStatement(queryGetSlot);
             st.setString(1, jam);
             ResultSet rs = st.executeQuery();
@@ -78,33 +75,12 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
             slotDatabase.setSlot_berangkat(rs.getInt("slot_berangkat"));
      
             slotDB = slotDatabase.getSlot_berangkat();
-            
         }
         catch(SQLException e)
         {
-
             System.out.println("Error "+e);
         }
         return slotDB;
-    }
-
-    @Override
-    public boolean refreshSlotDatabase() 
-    {
-        boolean success = true;
-        
-        try 
-        {
-            Statement st = con.createStatement();
-            st.execute(queryRefresh); 
-            
-        } 
-        catch(SQLException e)
-        {
-            success = false;            
-        }
-        
-        return success;
     }
     
 }

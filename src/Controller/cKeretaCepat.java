@@ -224,6 +224,7 @@ public class cKeretaCepat {
                 framePenumpang.getTfStatus().setText("Update Berhasil");
                 framePenumpang.getTfStatus().setBackground(Color.green);
                 framePenumpang.getTfStatus().setForeground(Color.black);
+                this.resetData();
 
             }else{
                 framePenumpang.getTfStatus().setText("Update Gagal");
@@ -367,21 +368,12 @@ public class cKeretaCepat {
         String tfNamaLengkap = framePenumpang.getTfNamaLengkap().getText().trim();
         String taAlamat = framePenumpang.getTaAlamat().getText().trim();
         
-        // RB Buttongroup JK
-        ButtonGroup buttonGroupJK = new ButtonGroup();
-        buttonGroupJK.add(framePenumpang.getRbLakiLaki());
-        buttonGroupJK.add(framePenumpang.getRbPerempuan());
-        ButtonModel rbClicked = buttonGroupJK.getSelection();
-        
-        // RB Buttongroup Jam
-        ButtonGroup buttonGroupJam = new ButtonGroup();
-        buttonGroupJam.add(framePenumpang.getRbJam10());
-        buttonGroupJam.add(framePenumpang.getRbJam12());
-        buttonGroupJam.add(framePenumpang.getRbJam14());
-        ButtonModel rbJamClicked = buttonGroupJam.getSelection();
-
-        
         StringBuilder errorText = new StringBuilder();
+        
+        ButtonModel rbClickedJK = framePenumpang.getBtnGroupJenisKelamin().getSelection();
+        ButtonModel rbClickedJam = framePenumpang.getBtnGroupJamBerangkat().getSelection();
+        
+        
         
         if(tfNik.equals("")){
             errorText.append("NIK, ");
@@ -394,7 +386,7 @@ public class cKeretaCepat {
             framePenumpang.getTfNamaLengkap().setBorder(new LineBorder(Color.red, 2));
         }
         
-        if(rbClicked == null)
+        if(rbClickedJK == null)
         {
             errorText.append("Jenis Kelamin, ");
         }
@@ -404,12 +396,12 @@ public class cKeretaCepat {
             framePenumpang.getTaAlamat().setBorder(new LineBorder(Color.red, 2));
         }
         
-        if(rbJamClicked == null)
+        if(rbClickedJam == null)
         {
             errorText.append("Jam Berangkat ");
         }
         
-        if(tfNik.equals("") || tfNamaLengkap.equals("") || taAlamat.equals("") || rbClicked == null || rbJamClicked == null)
+        if(tfNik.equals("") || tfNamaLengkap.equals("") || taAlamat.equals("") || rbClickedJK == null || rbClickedJam == null)
         {
             errorText.append("\ntidak boleh kosong!");
             JOptionPane.showMessageDialog(null, errorText, "Field Kosong", JOptionPane.ERROR_MESSAGE);

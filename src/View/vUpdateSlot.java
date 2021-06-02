@@ -263,14 +263,20 @@ public class vUpdateSlot extends javax.swing.JFrame {
         {
             cUpdtSlot.updateSlot();
             cUpdtSlot.refresh(); 
-            
-            // jika slot data sudah cocok, pindah ke form penumpang
-            if (!cUpdtSlot.isEmpty(false) && cUpdtSlot.isEnough(false))
+            try 
             {
-                dispose();
-                new vFormPenumpang(1).setVisible(true); 
+                // jika slot data sudah cocok, pindah ke form penumpang
+
+                if (!cUpdtSlot.isEmpty(false) && cUpdtSlot.isEnough(false))
+                {
+                    dispose();
+                    new vFormPenumpang(1).setVisible(true); 
+                }
+                
+            } catch (Exception e) 
+            {
+                System.out.println("ERROR INTEGER");
             }
-            
         }
         
     }//GEN-LAST:event_btnUpdateActionPerformed

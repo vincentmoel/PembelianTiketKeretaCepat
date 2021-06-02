@@ -29,47 +29,88 @@ public class cUpdateSlot {
         return iUpdateSlot.getSlotDatabase(jam);
     }
     
-//    public int convertToNumeric()
     
     public void updateSlot()
     {
         String tfAfter10 = frameUpdateSlot.getTfSlotAfter10().getText().trim();
         String tfAfter12 = frameUpdateSlot.getTfSlotAfter12().getText().trim();
         String tfAfter14 = frameUpdateSlot.getTfSlotAfter14().getText().trim();
-        
+
         boolean success10 = false;
         boolean success12 = false;
         boolean success14 = false;
-        boolean isEmpty = this.isEmpty(true);
-          
         
-        // jika field tidak ada yang kosong
-        if(!isEmpty)
+        
+        try 
         {
-            // jika slot cukup
-            if(this.isEnough(true))
+            int updateSlot10;
+            int updateSlot12;
+            int updateSlot14;
+            
+            try 
             {
-                int updateSlot10 = Integer.parseInt(tfAfter10);
-                int updateSlot12 = Integer.parseInt(tfAfter12);
-                int updateSlot14 = Integer.parseInt(tfAfter14);
+                updateSlot10 = Integer.parseInt(tfAfter10);
+            } catch (Exception e) 
+            {
+                frameUpdateSlot.getTfSlotAfter10().setBorder(new LineBorder(Color.red, 2));
+            }
+            
+            try 
+            {
+                updateSlot10 = Integer.parseInt(tfAfter12);
+            } catch (Exception e) 
+            {
+                frameUpdateSlot.getTfSlotAfter12().setBorder(new LineBorder(Color.red, 2));
+            }
+            
+            try 
+            {
+                updateSlot10 = Integer.parseInt(tfAfter14);
+            } catch (Exception e) 
+            {
+                frameUpdateSlot.getTfSlotAfter14().setBorder(new LineBorder(Color.red, 2));
+            }
+            
+            boolean isEmpty = this.isEmpty(true);
 
 
-                success10 = iUpdateSlot.updateSlotDatabase(updateSlot10, "10");
-                success12 = iUpdateSlot.updateSlotDatabase(updateSlot12, "12");
-                success14 = iUpdateSlot.updateSlotDatabase(updateSlot14, "14");
-
-
-                if (success10 && success12 && success14)
-                {    
-
-                    JOptionPane.showMessageDialog(null, "Slot berhasil diupdate!");
-
-                }else
+            // jika field tidak ada yang kosong
+            if(!isEmpty)
+            {
+                // jika slot cukup
+                if(this.isEnough(true))
                 {
-                    JOptionPane.showMessageDialog(null, "Slot gagal diupdate!", "Update Error", JOptionPane.ERROR_MESSAGE);
+                    updateSlot10 = Integer.parseInt(tfAfter10);
+                    updateSlot12 = Integer.parseInt(tfAfter12);
+                    updateSlot14 = Integer.parseInt(tfAfter14);
+
+
+                    success10 = iUpdateSlot.updateSlotDatabase(updateSlot10, "10");
+                    success12 = iUpdateSlot.updateSlotDatabase(updateSlot12, "12");
+                    success14 = iUpdateSlot.updateSlotDatabase(updateSlot14, "14");
+
+
+                    if (success10 && success12 && success14)
+                    {
+
+                        JOptionPane.showMessageDialog(null, "Slot berhasil diupdate!");
+
+                    }else
+                    {
+                        JOptionPane.showMessageDialog(null, "Slot gagal diupdate!", "Update Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-            }   
+            }
+            
+            
+        } catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(null, "Input tidak valid", "Update Error", JOptionPane.ERROR_MESSAGE);
         }
+        
+        
+        
+
     }
     
     public void startApp()
@@ -174,19 +215,11 @@ public class cUpdateSlot {
         int count12 = iKeretaCepat.getCountData("12");
         int count14 = iKeretaCepat.getCountData("14"); 
         
-        System.out.println(count10);
-        System.out.println(count12);
-        System.out.println(count14);
         
         // checking count data 
         int updateSlot10 = Integer.parseInt(tfAfter10);
         int updateSlot12 = Integer.parseInt(tfAfter12);
         int updateSlot14 = Integer.parseInt(tfAfter14);
-        
-        System.out.println("update slot");
-        System.out.println(updateSlot10);
-        System.out.println(updateSlot12);
-        System.out.println(updateSlot14);
 
         boolean isEnough10 = true;
         boolean isEnough12 = true;

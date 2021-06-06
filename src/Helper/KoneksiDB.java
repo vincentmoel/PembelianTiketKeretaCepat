@@ -19,10 +19,10 @@ public class KoneksiDB {
             try
             {
                 con = data.getConnection();
-                System.out.println("Koneksi Berhasil");
+
             }catch(SQLException e)
             {
-                System.out.println("Tidak Konek");
+
             }
         }
         return con;

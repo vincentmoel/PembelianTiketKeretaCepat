@@ -53,7 +53,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         }
         catch(SQLException e)
         {
-            System.out.println("Error "+e);
+
         }
         return listPenumpang;
     }
@@ -84,7 +84,6 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
                 statement.close();
             } catch (SQLException ex) 
             {
-                System.out.println("Gagal Input");
                 success = false;            
             }
         }
@@ -110,7 +109,6 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
             statement.execute();
         } catch(SQLException e)
         {
-            System.out.println("UPDATE GAGAL");
             success = false;            
         }
         finally
@@ -120,7 +118,6 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
                 statement.close();
             } catch (SQLException ex) 
             {
-                System.out.println("Gagal Update");
                 success = false;            
 
             }
@@ -142,7 +139,6 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
             
         } catch (Exception e) 
         {
-            System.out.println("DELETE GAGAL");
             success = false;
         }
         finally
@@ -152,7 +148,6 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
                 statement.close();
             } catch (SQLException ex) 
             {
-                System.out.println("Gagal hapus");
                 success = false;            
 
             }
@@ -179,7 +174,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
                     
         } catch (Exception e) 
         {
-            System.out.println("Gagal Count");
+            
         }
         
         return jml;
@@ -202,7 +197,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
             }
             
         } catch (Exception e) {
-            System.out.println("Gagal get Slot");
+
         }
         
         return slot;
@@ -235,7 +230,7 @@ public class DAOKeretaCepat implements IDAOKeretaCepat
         }
         catch(SQLException e)
         {
-            System.out.println("Error "+e);
+
         }
         return listPenumpang;
     }

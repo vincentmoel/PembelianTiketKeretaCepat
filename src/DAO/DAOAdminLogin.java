@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class DAOAdminLogin implements IDAOAdminLogin{
@@ -42,7 +43,7 @@ public class DAOAdminLogin implements IDAOAdminLogin{
       
         } catch (Exception e) 
         {
-            System.out.println("Gagal Get Username Password / Tidak ada di database");
+            JOptionPane.showMessageDialog(null, "Gagal Get Username Password / Tidak ada di database", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
         return listAdminLogin;
     }

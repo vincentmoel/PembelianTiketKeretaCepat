@@ -41,7 +41,6 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
             statement.execute();
         } catch(SQLException e)
         {
-            System.out.println("UPDATE GAGAL");
             success = false;            
         }
         finally
@@ -51,7 +50,7 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
                 statement.close();
             } catch (SQLException ex) 
             {
-                System.out.println("Gagal Update");
+
                 success = false;            
             }
         }
@@ -78,7 +77,7 @@ public class DAOUpdateSlot implements IDAOUpdateSlot{
         }
         catch(SQLException e)
         {
-            System.out.println("Error "+e);
+
         }
         return slotDB;
     }

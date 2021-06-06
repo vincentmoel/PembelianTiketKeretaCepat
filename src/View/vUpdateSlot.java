@@ -273,7 +273,7 @@ public class vUpdateSlot extends javax.swing.JFrame {
                 }
             } catch (Exception e) 
             {
-                System.out.println("ERROR INTEGER");
+                JOptionPane.showMessageDialog(null, "Input tidak valid!", "Update Error", JOptionPane.ERROR_MESSAGE);
             }
         }
         

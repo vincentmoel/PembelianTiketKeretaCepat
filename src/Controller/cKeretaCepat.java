@@ -95,8 +95,15 @@ public class cKeretaCepat {
             framePenumpang.getLblSisaJam10().setEnabled(false);
             framePenumpang.getLblStatusSlot10().setText("HABIS");
             framePenumpang.getLblStatusSlot10().setForeground(Color.RED);
+        }else
+        {
+            framePenumpang.getRbJam10().setEnabled(true);
+            framePenumpang.getLbLHurufSisaJam10().setEnabled(true);
+            framePenumpang.getLblSisaJam10().setEnabled(true);
+            framePenumpang.getLblStatusSlot10().setText("");
 
         }
+        
         if (slot12 - count12 == 0)
         {
             framePenumpang.getRbJam12().setEnabled(false);
@@ -104,7 +111,14 @@ public class cKeretaCepat {
             framePenumpang.getLblSisaJam12().setEnabled(false);
             framePenumpang.getLblStatusSlot12().setText("HABIS");
             framePenumpang.getLblStatusSlot12().setForeground(Color.RED);
+        }else{
+            framePenumpang.getRbJam12().setEnabled(true);
+            framePenumpang.getLbLHurufSisaJam12().setEnabled(true);
+            framePenumpang.getLblSisaJam12().setEnabled(true);
+            framePenumpang.getLblStatusSlot12().setText("");
+            
         }
+        
         if (slot14 - count14 == 0)
         {
             framePenumpang.getRbJam14().setEnabled(false);
@@ -112,6 +126,12 @@ public class cKeretaCepat {
             framePenumpang.getLblSisaJam14().setEnabled(false);
             framePenumpang.getLblStatusSlot14().setText("HABIS");
             framePenumpang.getLblStatusSlot14().setForeground(Color.RED);
+        }else{
+            framePenumpang.getRbJam14().setEnabled(true);
+            framePenumpang.getLbLHurufSisaJam14().setEnabled(true);
+            framePenumpang.getLblSisaJam14().setEnabled(true);
+            framePenumpang.getLblStatusSlot14().setText("");
+
         }
     }
 

@@ -100,25 +100,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblJenisKelamin.setText("Jenis Kelamin");
 
         tfId.setEnabled(false);
-        tfId.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tfIdMouseClicked(evt);
-            }
-        });
-        tfId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfIdActionPerformed(evt);
-            }
-        });
 
         tfNik.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfNikMouseClicked(evt);
-            }
-        });
-        tfNik.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNikActionPerformed(evt);
             }
         });
 
@@ -126,27 +111,12 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         btnGroupJamBerangkat.add(rbJam10);
         rbJam10.setText("10 : 00  WIB");
-        rbJam10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbJam10ActionPerformed(evt);
-            }
-        });
 
         btnGroupJamBerangkat.add(rbJam12);
         rbJam12.setText("12 : 00  WIB");
-        rbJam12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbJam12ActionPerformed(evt);
-            }
-        });
 
         btnGroupJamBerangkat.add(rbJam14);
         rbJam14.setText("14 : 00  WIB");
-        rbJam14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbJam14ActionPerformed(evt);
-            }
-        });
 
         taAlamat.setColumns(20);
         taAlamat.setLineWrap(true);
@@ -163,11 +133,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         tfNamaLengkap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tfNamaLengkapMouseClicked(evt);
-            }
-        });
-        tfNamaLengkap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNamaLengkapActionPerformed(evt);
             }
         });
 
@@ -193,11 +158,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         cbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "ID", "NIK", "Nama Lengkap" }));
 
-        tfSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfSearchActionPerformed(evt);
-            }
-        });
         tfSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfSearchKeyPressed(evt);
@@ -243,11 +203,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
 
         tfStatus.setEditable(false);
         tfStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfStatusActionPerformed(evt);
-            }
-        });
 
         lblHurufSisaJam10.setText("Sisa");
 
@@ -262,11 +217,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         lblSisaJam12.setText("40");
 
         cbSearchJam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua Jam Keberangkatan", "Jam 10 : 00 WIB", "Jam 12 : 00 WIB", "Jam 14 : 00 WIB" }));
-        cbSearchJam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbSearchJamActionPerformed(evt);
-            }
-        });
 
         lblStatusSlot10.setText("lblStatusSlot10");
 
@@ -464,27 +414,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdActionPerformed
-        
-    }//GEN-LAST:event_tfIdActionPerformed
-
-    private void rbJam10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam10ActionPerformed
-      
-    }//GEN-LAST:event_rbJam10ActionPerformed
-
-    private void rbJam12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam12ActionPerformed
-       
-    }//GEN-LAST:event_rbJam12ActionPerformed
-
-    private void tfNamaLengkapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaLengkapActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNamaLengkapActionPerformed
-
-    private void tfSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSearchActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_tfSearchActionPerformed
-
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         cKrtCpt.searchData();
@@ -501,10 +430,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         tfStatus.setBackground(Color.WHITE);        
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void rbJam14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbJam14ActionPerformed
-      
-    }//GEN-LAST:event_rbJam14ActionPerformed
-
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         cKrtCpt.insertData();
         cKrtCpt.readData();
@@ -519,14 +444,10 @@ public class vFormPenumpang extends javax.swing.JFrame {
         cKrtCpt.resetBorder();
     }//GEN-LAST:event_tblPenumpangMouseClicked
 
-    private void tfStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfStatusActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         
-        int option = JOptionPane.showConfirmDialog(null, "Apakah yakin ingin menghapus data?", "Delete", JOptionPane.YES_NO_OPTION);
+        int option = JOptionPane.showConfirmDialog(null, "Apakah yakin ingin menghapus data?", "Delete", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         
         if(option == 0)
         {
@@ -538,10 +459,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void cbSearchJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSearchJamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbSearchJamActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         
@@ -573,14 +490,6 @@ public class vFormPenumpang extends javax.swing.JFrame {
         btnLogout.setForeground(Color.WHITE);
 
     }//GEN-LAST:event_btnLogoutMouseExited
-
-    private void tfNikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNikActionPerformed
-        
-    }//GEN-LAST:event_tfNikActionPerformed
-
-    private void tfIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfIdMouseClicked
-       
-    }//GEN-LAST:event_tfIdMouseClicked
 
     private void tfNikMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfNikMouseClicked
         
